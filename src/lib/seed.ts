@@ -369,8 +369,111 @@ export function createSeed(): Content {
         }
       },
       {
-        "id": "prj-collabflow",
+        "id": "prj-portfolio",
         "order": 3,
+        "status": "published",
+        "updatedAt": "2026-10-09T20:21:25.217Z",
+        "slug": "portfolio-cms",
+        "title": {
+          "en": "Personal Portfolio — Bilingual Site with Built-in CMS",
+          "ar": "البورتفوليو الشخصي — موقع ثنائي اللغة بلوحة تحكم"
+        },
+        "summary": {
+          "en": "This website: an English/Arabic portfolio with project case studies, a contact inquiry form and a full admin dashboard that edits every section, running on Cloudflare Workers.",
+          "ar": "هذا الموقع: بورتفوليو بالعربية والإنجليزية فيه دراسات حالة للمشاريع ونموذج طلب مشروع ولوحة تحكم كاملة لتعديل كل الأقسام، ويعمل على Cloudflare Workers."
+        },
+        "category": "web-apps",
+        "image": "/images/projects/portfolio/cover.webp",
+        "gallery": [
+          {
+            "src": "/images/projects/portfolio/cover.webp",
+            "caption": {
+              "en": "Homepage on desktop and mobile",
+              "ar": "الصفحة الرئيسية على الكمبيوتر والموبايل"
+            }
+          },
+          {
+            "src": "/images/projects/portfolio/arabic.webp",
+            "caption": {
+              "en": "Arabic version with a true right-to-left layout",
+              "ar": "النسخة العربية بتخطيط حقيقي من اليمين لليسار"
+            }
+          },
+          {
+            "src": "/images/projects/portfolio/projects.webp",
+            "caption": {
+              "en": "Projects page with category filters",
+              "ar": "صفحة المشاريع مع التصفية حسب التصنيف"
+            }
+          },
+          {
+            "src": "/images/projects/portfolio/case-study.webp",
+            "caption": {
+              "en": "Project case study page",
+              "ar": "صفحة دراسة حالة لمشروع"
+            }
+          },
+          {
+            "src": "/images/projects/portfolio/contact.webp",
+            "caption": {
+              "en": "Project inquiry form with validation",
+              "ar": "نموذج طلب المشروع مع التحقق من البيانات"
+            }
+          },
+          {
+            "src": "/images/projects/portfolio/mobile.webp",
+            "caption": {
+              "en": "Mobile views in English and Arabic",
+              "ar": "شاشات الموبايل بالإنجليزية والعربية"
+            }
+          }
+        ],
+        "stack": "Next.js, React, TypeScript, Tailwind CSS, Cloudflare Workers, Cloudflare D1, Cloudflare R2",
+        "liveUrl": "https://portfolio.mohamedselim.workers.dev",
+        "githubUrl": "https://github.com/mohamedselimdev/ms-portfolio",
+        "featured": true,
+        "projectStatus": "completed",
+        "year": "2026",
+        "role": {
+          "en": "Full-Stack Developer (design, development & deployment)",
+          "ar": "مطوّر ويب متكامل (تصميم وتطوير ونشر)"
+        },
+        "client": {
+          "en": "Personal project",
+          "ar": "مشروع شخصي"
+        },
+        "timeline": {
+          "en": "",
+          "ar": ""
+        },
+        "overview": {
+          "en": "My own portfolio, built as a real product instead of a static page: every text, image, project and setting on the site is editable from a private dashboard, in both English and Arabic.",
+          "ar": "البورتفوليو الخاص بي، مبني كمنتج حقيقي وليس صفحة ثابتة: كل نص وصورة ومشروع وإعداد في الموقع يمكن تعديله من لوحة تحكم خاصة، بالعربية والإنجليزية."
+        },
+        "challenge": {
+          "en": "I wanted to update projects, services and contact details without touching code or redeploying, keep one codebase for two languages with a proper right-to-left layout, and host it without a traditional server or paid database.",
+          "ar": "كنت أريد تحديث المشاريع والخدمات وبيانات التواصل دون تعديل الكود أو إعادة النشر، مع قاعدة كود واحدة للغتين بتخطيط صحيح من اليمين لليسار، واستضافته دون سيرفر تقليدي أو قاعدة بيانات مدفوعة."
+        },
+        "solution": {
+          "en": "A Next.js 16 app deployed to Cloudflare Workers. Content lives in Cloudflare D1 and uploaded images in R2. The dashboard is generated from one declarative schema, so every section shares the same forms, validation, publish/draft, reordering and search. Translations come from shared files, and the language is part of the URL. The admin area is protected by a signed session cookie and a PBKDF2 password hash, with server-side validation and rate limiting on login and on the inquiry form.",
+          "ar": "تطبيق Next.js 16 منشور على Cloudflare Workers. المحتوى محفوظ في Cloudflare D1 والصور المرفوعة في R2. لوحة التحكم مولّدة من مخطط واحد، فكل الأقسام تشترك في نفس النماذج والتحقق والنشر والمسودات وإعادة الترتيب والبحث. الترجمات من ملفات مشتركة واللغة جزء من الرابط. منطقة الإدارة محمية بكوكي جلسة موقّعة وكلمة سر مشفّرة بـ PBKDF2، مع تحقق على السيرفر وحد لعدد المحاولات في تسجيل الدخول ونموذج الطلبات."
+        },
+        "features": {
+          "en": "English and Arabic with a true RTL layout from shared translation files\nHome, About, Projects, case study, Services and Contact pages\nProject filters and screenshot gallery with lightbox\nProject inquiry form with client and server validation\nAdmin dashboard for every section of the site\nPublish / draft, reorder, search and filter on every list\nMedia library with image uploads to Cloudflare R2\nInquiries inbox with read / replied / archived states\nPrivacy-friendly visitor analytics with no third parties\nSEO: metadata, hreflang, sitemap, generated share image\nTheme colours and maintenance mode editable from the dashboard\nUnknown data (stats, testimonials) stays hidden until filled in",
+          "ar": "عربي وإنجليزي بتخطيط RTL حقيقي من ملفات ترجمة مشتركة\nصفحات الرئيسية ومن أنا والمشاريع ودراسة الحالة والخدمات والتواصل\nتصفية المشاريع ومعرض لقطات مع تكبير الصور\nنموذج طلب مشروع مع تحقق في المتصفح وعلى السيرفر\nلوحة تحكم لكل أقسام الموقع\nنشر ومسودات وإعادة ترتيب وبحث وتصفية في كل قائمة\nمكتبة وسائط مع رفع الصور إلى Cloudflare R2\nصندوق للطلبات بحالات مقروء وتم الرد ومؤرشف\nإحصائيات زوار تحترم الخصوصية بدون أطراف خارجية\nتحسين محركات البحث: بيانات وصفية وhreflang وخريطة الموقع وصورة مشاركة مولّدة\nألوان المظهر ووضع الصيانة قابلة للتعديل من اللوحة\nالبيانات غير المعروفة (الإحصائيات والآراء) تبقى مخفية حتى تُملأ"
+        },
+        "responsibilities": {
+          "en": "UI design and responsive RTL/LTR implementation\nFrontend and backend development\nContent model and dashboard built from one schema\nAuthentication, validation and rate limiting\nData layer on Cloudflare D1 and R2\nDeployment to Cloudflare Workers",
+          "ar": "تصميم الواجهات وتنفيذها متجاوبة بالعربي والإنجليزي\nتطوير الواجهة الأمامية والخلفية\nنموذج المحتوى ولوحة التحكم المبنية من مخطط واحد\nالمصادقة والتحقق من المدخلات وحد المحاولات\nطبقة البيانات على Cloudflare D1 وR2\nالنشر على Cloudflare Workers"
+        },
+        "results": {
+          "en": "",
+          "ar": ""
+        }
+      },
+      {
+        "id": "prj-collabflow",
+        "order": 4,
         "status": "published",
         "updatedAt": "2026-01-01T00:00:00.000Z",
         "slug": "collabflow",
@@ -430,7 +533,7 @@ export function createSeed(): Content {
       },
       {
         "id": "prj-ryadom",
-        "order": 4,
+        "order": 5,
         "status": "published",
         "updatedAt": "2026-01-01T00:00:00.000Z",
         "slug": "ryadom",
@@ -762,6 +865,54 @@ export function createSeed(): Content {
         "type": "image/webp",
         "size": 0,
         "createdAt": "2026-10-03T01:34:07.959Z"
+      },
+      {
+        "id": "m-portfolio-cover",
+        "url": "/images/projects/portfolio/cover.webp",
+        "name": "portfolio-cover.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-09T20:21:25.217Z"
+      },
+      {
+        "id": "m-portfolio-arabic",
+        "url": "/images/projects/portfolio/arabic.webp",
+        "name": "portfolio-arabic.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-09T20:21:25.217Z"
+      },
+      {
+        "id": "m-portfolio-projects",
+        "url": "/images/projects/portfolio/projects.webp",
+        "name": "portfolio-projects.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-09T20:21:25.217Z"
+      },
+      {
+        "id": "m-portfolio-case-study",
+        "url": "/images/projects/portfolio/case-study.webp",
+        "name": "portfolio-case-study.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-09T20:21:25.217Z"
+      },
+      {
+        "id": "m-portfolio-contact",
+        "url": "/images/projects/portfolio/contact.webp",
+        "name": "portfolio-contact.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-09T20:21:25.217Z"
+      },
+      {
+        "id": "m-portfolio-mobile",
+        "url": "/images/projects/portfolio/mobile.webp",
+        "name": "portfolio-mobile.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-09T20:21:25.217Z"
       }
     ],
     activity: [],

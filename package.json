@@ -1,0 +1,40 @@
+{
+  "name": "ms-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "hash-password": "node scripts/hash-password.mjs",
+    "typecheck": "tsc --noEmit",
+    "preview": "npm run cf:build && opennextjs-cloudflare preview",
+    "deploy": "npm run cf:build && opennextjs-cloudflare deploy",
+    "db:migrate:local": "wrangler d1 migrations apply DB --local",
+    "db:migrate:remote": "wrangler d1 migrations apply DB --remote",
+    "cf:build": "node scripts/cf-build.mjs",
+    "set-admin-password": "node scripts/set-admin-password.mjs"
+  },
+  "dependencies": {
+    "@opennextjs/cloudflare": "^1.20.6",
+    "jose": "^6.2.12",
+    "lucide-react": "^1.48.0",
+    "next": "16.3.6",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "server-only": "^0.0.1",
+    "simple-icons": "^16.33.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.6",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "wrangler": "^4.142.0"
+  }
+}

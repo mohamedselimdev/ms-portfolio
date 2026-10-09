@@ -1,0 +1,4 @@
+# Secrets for `npm run preview` (wrangler). In production set them with `npx wrangler secret put <NAME>`.
+ADMIN_EMAIL=admin@example.com
+ADMIN_PASSWORD_HASH=
+AUTH_SECRET=

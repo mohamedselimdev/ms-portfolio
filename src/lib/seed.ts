@@ -472,8 +472,111 @@ export function createSeed(): Content {
         }
       },
       {
-        "id": "prj-collabflow",
+        "id": "prj-al-daftar",
         "order": 4,
+        "status": "published",
+        "updatedAt": "2026-10-12T07:54:15.309Z",
+        "slug": "al-daftar",
+        "title": {
+          "en": "Al-Daftar — Multi-Branch Ledger for Small Businesses",
+          "ar": "الدفتر — دفتر حسابات متعدد الفروع للأنشطة الصغيرة"
+        },
+        "summary": {
+          "en": "Arabic-first ledger web app for small businesses: branches, employees with per-branch permissions, money in and out, transfers between branches and a full audit trail, running on Cloudflare Workers.",
+          "ar": "تطبيق ويب عربي لدفتر الحسابات للأنشطة الصغيرة: فروع، وموظفون بصلاحيات لكل فرع، وحركات داخل وخارج، وتحويلات بين الفروع، وسجل نشاط كامل، ويعمل على Cloudflare Workers."
+        },
+        "category": "web-apps",
+        "image": "/images/projects/al-daftar/cover.webp",
+        "gallery": [
+          {
+            "src": "/images/projects/al-daftar/cover.webp",
+            "caption": {
+              "en": "Balance overview and transaction log on desktop and mobile",
+              "ar": "نظرة على الرصيد وسجل الحركات على الكمبيوتر والموبايل"
+            }
+          },
+          {
+            "src": "/images/projects/al-daftar/branches.webp",
+            "caption": {
+              "en": "Branches, each with its own balance and log",
+              "ar": "الفروع، لكل فرع رصيده وسجله"
+            }
+          },
+          {
+            "src": "/images/projects/al-daftar/members.webp",
+            "caption": {
+              "en": "Employees and per-branch permissions",
+              "ar": "الموظفون وصلاحيات كل فرع"
+            }
+          },
+          {
+            "src": "/images/projects/al-daftar/new-entry.webp",
+            "caption": {
+              "en": "Recording a new transaction",
+              "ar": "تسجيل حركة جديدة"
+            }
+          },
+          {
+            "src": "/images/projects/al-daftar/activity.webp",
+            "caption": {
+              "en": "Activity log: who did what, and when",
+              "ar": "سجل النشاط: مين عمل إيه وإمتى"
+            }
+          },
+          {
+            "src": "/images/projects/al-daftar/mobile.webp",
+            "caption": {
+              "en": "Mobile views",
+              "ar": "شاشات الموبايل"
+            }
+          }
+        ],
+        "stack": "React, vinext, TypeScript, Tailwind CSS, Drizzle ORM, Cloudflare Workers, Cloudflare D1",
+        "liveUrl": "https://al-daftar.mohamedselim.workers.dev",
+        "githubUrl": "",
+        "featured": true,
+        "projectStatus": "completed",
+        "year": "2026",
+        "role": {
+          "en": "Full-Stack Developer (design, development & deployment)",
+          "ar": "مطوّر ويب متكامل (تصميم وتطوير ونشر)"
+        },
+        "client": {
+          "en": "",
+          "ar": ""
+        },
+        "timeline": {
+          "en": "",
+          "ar": ""
+        },
+        "overview": {
+          "en": "Al-Daftar (\"the ledger\") replaces the paper notebook a small business keeps for its cash. The owner creates the company and its branches, adds employees, and everyone records money in and money out from a phone or a computer. The interface is Arabic and right-to-left from the first screen.",
+          "ar": "«الدفتر» بديل للدفتر الورقي الذي يسجّل فيه النشاط الصغير حركة النقدية. صاحب النشاط ينشئ الشركة وفروعها ويضيف الموظفين، وكل واحد يسجّل الداخل والخارج من الموبايل أو الكمبيوتر. الواجهة عربية ومن اليمين لليسار من أول شاشة."
+        },
+        "challenge": {
+          "en": "Money records must stay trustworthy when several people in several branches write to them. An employee should only see and edit the branches they were given, amounts must never drift because of rounding, and a wrong entry must be corrected without erasing what happened.",
+          "ar": "سجلات الفلوس لازم تفضل موثوقة حتى مع أكثر من شخص في أكثر من فرع. الموظف يرى ويعدّل الفروع المسموح له بها فقط، والمبالغ لا يصح أن تتغيّر بسبب التقريب، والحركة الخطأ تُصحَّح دون مسح ما حدث."
+        },
+        "solution": {
+          "en": "A React app built with vinext and deployed to Cloudflare Workers, with Cloudflare D1 and Drizzle ORM for data. All accounting rules and permission checks run on the server in one API. Amounts are stored as whole minor units, so no rounding errors. Entries are never edited or deleted: a mistake is fixed with a reversal entry linked to the original. A transfer writes both sides together. Every action lands in an activity log. Sign-in uses a phone number or email with a PBKDF2 password hash and an HttpOnly session cookie, and automated tests cover company isolation, permissions and money flow.",
+          "ar": "تطبيق React مبني بـ vinext ومنشور على Cloudflare Workers، والبيانات على Cloudflare D1 مع Drizzle ORM. كل قواعد الحسابات وفحص الصلاحيات تعمل على السيرفر في واجهة API واحدة. المبالغ محفوظة كأعداد صحيحة بأصغر وحدة للعملة، فلا توجد أخطاء تقريب. الحركات لا تُعدَّل ولا تُحذف: الخطأ يُصحَّح بحركة رجوع مرتبطة بالأصلية. التحويل يسجّل الطرفين معًا. وكل إجراء يدخل سجل النشاط. الدخول برقم الموبايل أو البريد مع كلمة سر مشفّرة بـ PBKDF2 وكوكي جلسة HttpOnly، واختبارات آلية تغطي عزل الشركات والصلاحيات وحركة الفلوس."
+        },
+        "features": {
+          "en": "Company with multiple branches, each with its own balance\nMoney in and money out with category, date and description\nTransfers between branches\nReversal entries instead of editing or deleting\nEmployees with read or write permission per branch\nActivity log of every action\nSearch and filters by branch and date\nTotals for current balance, money in and money out\nAmounts stored as whole minor units\nSign-in with phone number or email\nArabic right-to-left interface, responsive on mobile",
+          "ar": "شركة بعدة فروع، ولكل فرع رصيده\nحركات داخل وخارج بتصنيف وتاريخ ووصف\nتحويلات بين الفروع\nحركات رجوع بدل التعديل أو الحذف\nموظفون بصلاحية مشاهدة أو تسجيل لكل فرع\nسجل نشاط لكل إجراء\nبحث وتصفية بالفرع والتاريخ\nإجماليات الرصيد الحالي والداخل والخارج\nالمبالغ محفوظة كأعداد صحيحة بأصغر وحدة\nالدخول برقم الموبايل أو البريد الإلكتروني\nواجهة عربية من اليمين لليسار ومتجاوبة على الموبايل"
+        },
+        "responsibilities": {
+          "en": "UI design and responsive RTL implementation\nFrontend and backend development\nDatabase schema and migrations with Drizzle\nAccounting rules and permission checks on the server\nAuthentication and session handling\nAutomated tests for isolation, permissions and money flow\nDeployment to Cloudflare Workers",
+          "ar": "تصميم الواجهات وتنفيذها متجاوبة بالعربية\nتطوير الواجهة الأمامية والخلفية\nمخطط قاعدة البيانات والترحيلات بـ Drizzle\nقواعد الحسابات وفحص الصلاحيات على السيرفر\nالمصادقة وإدارة الجلسات\nاختبارات آلية للعزل والصلاحيات وحركة الفلوس\nالنشر على Cloudflare Workers"
+        },
+        "results": {
+          "en": "",
+          "ar": ""
+        }
+      },
+      {
+        "id": "prj-collabflow",
+        "order": 5,
         "status": "published",
         "updatedAt": "2026-10-12T07:33:14.730Z",
         "slug": "collabflow",
@@ -555,7 +658,7 @@ export function createSeed(): Content {
       },
       {
         "id": "prj-ryadom",
-        "order": 5,
+        "order": 6,
         "status": "published",
         "updatedAt": "2026-10-12T07:33:14.730Z",
         "slug": "ryadom",
@@ -1005,6 +1108,54 @@ export function createSeed(): Content {
         "type": "image/webp",
         "size": 0,
         "createdAt": "2026-10-12T07:33:14.730Z"
+      },
+      {
+        "id": "m-al-daftar-cover",
+        "url": "/images/projects/al-daftar/cover.webp",
+        "name": "al-daftar-cover.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-12T07:54:15.309Z"
+      },
+      {
+        "id": "m-al-daftar-branches",
+        "url": "/images/projects/al-daftar/branches.webp",
+        "name": "al-daftar-branches.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-12T07:54:15.309Z"
+      },
+      {
+        "id": "m-al-daftar-members",
+        "url": "/images/projects/al-daftar/members.webp",
+        "name": "al-daftar-members.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-12T07:54:15.309Z"
+      },
+      {
+        "id": "m-al-daftar-new-entry",
+        "url": "/images/projects/al-daftar/new-entry.webp",
+        "name": "al-daftar-new-entry.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-12T07:54:15.309Z"
+      },
+      {
+        "id": "m-al-daftar-activity",
+        "url": "/images/projects/al-daftar/activity.webp",
+        "name": "al-daftar-activity.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-12T07:54:15.309Z"
+      },
+      {
+        "id": "m-al-daftar-mobile",
+        "url": "/images/projects/al-daftar/mobile.webp",
+        "name": "al-daftar-mobile.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-12T07:54:15.309Z"
       }
     ],
     activity: [],

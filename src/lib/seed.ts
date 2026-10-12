@@ -475,7 +475,7 @@ export function createSeed(): Content {
         "id": "prj-collabflow",
         "order": 4,
         "status": "published",
-        "updatedAt": "2026-01-01T00:00:00.000Z",
+        "updatedAt": "2026-10-12T07:33:14.730Z",
         "slug": "collabflow",
         "title": {
           "en": "CollabFlow — SaaS Project Management API",
@@ -486,11 +486,33 @@ export function createSeed(): Content {
           "ar": "نظام خلفي متعدد المستأجرين لمنصة SaaS لإدارة مشاريع الفرق: مصادقة JWT ومساحات عمل بأدوار للأعضاء وإدارة المشاريع على ASP.NET Core 9 وPostgreSQL."
         },
         "category": "backend",
-        "image": "",
-        "gallery": [],
+        "image": "/images/projects/collabflow/board.webp",
+        "gallery": [
+          {
+            "src": "/images/projects/collabflow/board.webp",
+            "caption": {
+              "en": "Interface design: project task board",
+              "ar": "تصميم الواجهة: لوحة مهام المشروع"
+            }
+          },
+          {
+            "src": "/images/projects/collabflow/workspace.webp",
+            "caption": {
+              "en": "Interface design: workspace and projects",
+              "ar": "تصميم الواجهة: مساحة العمل والمشاريع"
+            }
+          },
+          {
+            "src": "/images/projects/collabflow/login.webp",
+            "caption": {
+              "en": "Interface design: sign-in screen",
+              "ar": "تصميم الواجهة: شاشة تسجيل الدخول"
+            }
+          }
+        ],
         "stack": "ASP.NET Core 9, C#, Entity Framework Core, PostgreSQL, JWT, Docker",
         "liveUrl": "",
-        "githubUrl": "",
+        "githubUrl": "https://github.com/mohamedselimdev/collabflow-saas-project-management",
         "featured": true,
         "projectStatus": "in-progress",
         "year": "",
@@ -535,22 +557,44 @@ export function createSeed(): Content {
         "id": "prj-ryadom",
         "order": 5,
         "status": "published",
-        "updatedAt": "2026-01-01T00:00:00.000Z",
+        "updatedAt": "2026-10-12T07:33:14.730Z",
         "slug": "ryadom",
         "title": {
           "en": "Ryadom — Psychological Support Platform",
           "ar": "ريادوم — منصة للدعم النفسي"
         },
         "summary": {
-          "en": "A digital platform that makes mental-health support easier to access. My software engineering graduation project, graded 5/5.",
-          "ar": "منصة رقمية تسهّل الوصول إلى خدمات الدعم النفسي. مشروع تخرجي في هندسة البرمجيات بتقدير 5/5."
+          "en": "Online platform for psychological support: specialist booking, a 24/7 AI assistant chat and a knowledge library, in English, Russian and Arabic (RTL). My software engineering graduation project, graded 5/5.",
+          "ar": "منصة أونلاين للدعم النفسي: حجز جلسات مع مختصين، ومساعد ذكي للمحادثة على مدار الساعة، ومكتبة معرفية، بالإنجليزية والروسية والعربية (RTL). مشروع تخرجي في هندسة البرمجيات بتقدير 5/5."
         },
         "category": "web-apps",
-        "image": "",
-        "gallery": [],
-        "stack": "",
+        "image": "/images/projects/ryadom/cover.webp",
+        "gallery": [
+          {
+            "src": "/images/projects/ryadom/cover.webp",
+            "caption": {
+              "en": "Homepage in English and Arabic (RTL)",
+              "ar": "الصفحة الرئيسية بالإنجليزية والعربية"
+            }
+          },
+          {
+            "src": "/images/projects/ryadom/booking.webp",
+            "caption": {
+              "en": "Specialist listings and session booking",
+              "ar": "قائمة المختصين وحجز الجلسات"
+            }
+          },
+          {
+            "src": "/images/projects/ryadom/chat.webp",
+            "caption": {
+              "en": "24/7 AI assistant chat in three languages",
+              "ar": "مساعد ذكي للمحادثة بثلاث لغات"
+            }
+          }
+        ],
+        "stack": "Node.js, Express, PostgreSQL, JWT, REST API, Python, JavaScript",
         "liveUrl": "",
-        "githubUrl": "",
+        "githubUrl": "https://github.com/mohamedselimdev/Ryadom",
         "featured": true,
         "projectStatus": "completed",
         "year": "2025",
@@ -567,24 +611,24 @@ export function createSeed(): Content {
           "ar": ""
         },
         "overview": {
-          "en": "Ryadom is a digital psychological support platform designed to improve access to mental-health services.",
-          "ar": "ريادوم منصة رقمية للدعم النفسي صُممت لتحسين الوصول إلى خدمات الصحة النفسية."
+          "en": "Ryadom (\"nearby\" in Russian) is an online psychological support platform. Visitors can book a video, audio or chat session with a specialist, talk to an AI assistant at any time, and read articles in the knowledge library.",
+          "ar": "ريادوم (تعني «بجانبك» بالروسية) منصة أونلاين للدعم النفسي. يستطيع الزائر حجز جلسة فيديو أو صوت أو محادثة مع مختص، والتحدث مع مساعد ذكي في أي وقت، وقراءة مقالات المكتبة المعرفية."
         },
         "challenge": {
           "en": "People looking for psychological help often face barriers before they even reach a specialist. The platform had to feel approachable while handling sensitive user data securely.",
           "ar": "كثيرًا ما يواجه الباحثون عن الدعم النفسي عقبات قبل الوصول إلى المختص. كان على المنصة أن تكون سهلة ومريحة مع التعامل الآمن مع بيانات المستخدمين الحساسة."
         },
         "solution": {
-          "en": "I architected the system structure, database schemas and secure authentication flows, built responsive web interfaces, and produced full project documentation to industry standards.",
-          "ar": "صممت هيكل النظام ومخططات قاعدة البيانات ومسارات المصادقة الآمنة، وبنيت واجهات ويب متجاوبة، وأعددت توثيقًا كاملًا للمشروع وفق معايير الصناعة."
+          "en": "A Node.js and Express backend with a PostgreSQL database, a REST API and JWT authentication. Specialists are listed with their role, experience and schedule, and a session is booked in a few clicks. The support chat answers instantly and can hand replies to an optional Python AI service. The whole interface is available in English, Russian and Arabic with a proper right-to-left layout.",
+          "ar": "نظام خلفي بـ Node.js وExpress مع قاعدة بيانات PostgreSQL وواجهة REST ومصادقة JWT. يُعرض المختصون بتخصصهم وخبرتهم ومواعيدهم، ويتم حجز الجلسة في خطوات قليلة. محادثة الدعم ترد فورًا ويمكن ربطها بخدمة ذكاء اصطناعي اختيارية مكتوبة بـ Python. الواجهة كلها متاحة بالإنجليزية والروسية والعربية بتخطيط صحيح من اليمين لليسار."
         },
         "features": {
-          "en": "Secure user authentication\nResponsive web interface\nStructured database design\nFull project documentation",
-          "ar": "مصادقة آمنة للمستخدمين\nواجهة ويب متجاوبة\nتصميم منظم لقاعدة البيانات\nتوثيق كامل للمشروع"
+          "en": "Specialist listings with role, experience and schedule\nSession booking in a few clicks\n24/7 AI assistant support chat\nOptional Python AI service for replies\nKnowledge library and plans pages\nEnglish, Russian and Arabic (RTL)\nJWT authentication and REST API\nMobile-first responsive interface",
+          "ar": "قائمة المختصين بالتخصص والخبرة والمواعيد\nحجز الجلسات في خطوات قليلة\nمحادثة دعم بمساعد ذكي على مدار الساعة\nخدمة ذكاء اصطناعي اختيارية بـ Python للردود\nمكتبة معرفية وصفحة الباقات\nالإنجليزية والروسية والعربية (RTL)\nمصادقة JWT وواجهة REST\nواجهة متجاوبة تبدأ من الموبايل"
         },
         "responsibilities": {
-          "en": "System architecture\nDatabase schema design\nAuthentication flows\nResponsive UI development\nProject documentation",
-          "ar": "معمارية النظام\nتصميم مخطط قاعدة البيانات\nمسارات المصادقة\nتطوير واجهات متجاوبة\nتوثيق المشروع"
+          "en": "System architecture\nDatabase schema design\nBackend and REST API development\nAuthentication flows\nResponsive multilingual UI (RTL & LTR)\nProject documentation",
+          "ar": "معمارية النظام\nتصميم مخطط قاعدة البيانات\nتطوير النظام الخلفي وواجهة REST\nمسارات المصادقة\nواجهة متجاوبة متعددة اللغات (RTL وLTR)\nتوثيق المشروع"
         },
         "results": {
           "en": "Defended as a graduation project and graded Excellent (5/5).",
@@ -913,6 +957,54 @@ export function createSeed(): Content {
         "type": "image/webp",
         "size": 0,
         "createdAt": "2026-10-09T20:21:25.217Z"
+      },
+      {
+        "id": "m-ryadom-cover",
+        "url": "/images/projects/ryadom/cover.webp",
+        "name": "ryadom-cover.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-12T07:33:14.730Z"
+      },
+      {
+        "id": "m-ryadom-booking",
+        "url": "/images/projects/ryadom/booking.webp",
+        "name": "ryadom-booking.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-12T07:33:14.730Z"
+      },
+      {
+        "id": "m-ryadom-chat",
+        "url": "/images/projects/ryadom/chat.webp",
+        "name": "ryadom-chat.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-12T07:33:14.730Z"
+      },
+      {
+        "id": "m-collabflow-board",
+        "url": "/images/projects/collabflow/board.webp",
+        "name": "collabflow-board.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-12T07:33:14.730Z"
+      },
+      {
+        "id": "m-collabflow-workspace",
+        "url": "/images/projects/collabflow/workspace.webp",
+        "name": "collabflow-workspace.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-12T07:33:14.730Z"
+      },
+      {
+        "id": "m-collabflow-login",
+        "url": "/images/projects/collabflow/login.webp",
+        "name": "collabflow-login.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-12T07:33:14.730Z"
       }
     ],
     activity: [],

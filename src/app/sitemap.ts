@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getContent } from "@/lib/store";
 import { siteUrl } from "@/lib/utils";
+import { LOCALES } from "@/i18n/config";
 
 export const dynamic = "force-dynamic";
 
@@ -10,15 +11,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = siteUrl();
   const paths = ["", "/about", "/projects", "/services", "/contact"];
   const projects = content.projects.filter((p) => p.status === "published");
-  const entry = (p: string, lastModified?: string, priority = 0.7) => ({
-    url: `${base}/en${p}`,
-    lastModified: lastModified ? new Date(lastModified) : new Date(),
-    changeFrequency: "monthly" as const,
-    priority,
-    alternates: { languages: { en: `${base}/en${p}`, ar: `${base}/ar${p}` } },
-  });
+  // One entry per language, each listing both versions as hreflang alternates.
+  const entry = (p: string, lastModified?: string, priority = 0.7) =>
+    LOCALES.map((lang) => ({
+      url: `${base}/${lang}${p}`,
+      lastModified: lastModified ? new Date(lastModified) : new Date(),
+      changeFrequency: "monthly" as const,
+      priority,
+      alternates: { languages: { en: `${base}/en${p}`, ar: `${base}/ar${p}` } },
+    }));
   return [
-    ...paths.map((p) => entry(p, undefined, p === "" ? 1 : 0.8)),
-    ...projects.map((p) => entry(`/projects/${p.slug}`, p.updatedAt, 0.6)),
+    ...paths.flatMap((p) => entry(p, undefined, p === "" ? 1 : 0.8)),
+    ...projects.flatMap((p) => entry(`/projects/${p.slug}`, p.updatedAt, 0.6)),
   ];
 }

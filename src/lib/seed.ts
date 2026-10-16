@@ -39,10 +39,10 @@ export function createSeed(): Content {
       glow: 35,
     },
     seo: {
-      title: l("Mohamed Selim — Freelance Full-Stack Web Developer", "محمد سليم — مطوّر ويب متكامل مستقل"),
+      title: l("Mohamed Selim | Software Engineer & Full Stack Developer", "محمد سليم | مهندس برمجيات ومطور ويب متكامل"),
       description: l(
-        "Freelance full-stack web developer building fast, bilingual (Arabic/English) websites, web apps, e-commerce stores and APIs with Next.js, React, Node.js and ASP.NET Core.",
-        "مطوّر ويب متكامل مستقل، أبني مواقع وتطبيقات ويب ومتاجر إلكترونية وواجهات برمجية سريعة وثنائية اللغة (عربي/إنجليزي) باستخدام Next.js وReact وNode.js وASP.NET Core.",
+        "Mohamed Selim is a software engineer specializing in full stack web development, e-commerce platforms, dashboards, and web applications.",
+        "محمد سليم، مهندس برمجيات متخصص في تطوير المواقع والمتاجر الإلكترونية ولوحات التحكم وتطبيقات الويب المتكاملة.",
       ),
       keywords: l(
         "full-stack developer, freelance web developer, Next.js developer, React developer, e-commerce website, web application, Arabic website, RTL",

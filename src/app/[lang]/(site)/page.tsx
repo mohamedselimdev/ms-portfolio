@@ -6,6 +6,7 @@ import { getMessages } from "@/i18n";
 import { isLocale, tl } from "@/i18n/config";
 import { getSiteContent, published } from "@/lib/content";
 import { pageMeta } from "@/lib/metadata";
+import { siteUrl } from "@/lib/utils";
 import { Icon } from "@/components/icons";
 import { PageHero } from "@/components/ui/PageHero";
 import { TechChips } from "@/components/ui/TechChips";
@@ -33,8 +34,39 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
   const services = published(content.services);
   const principles = published(content.principles).slice(0, 4);
 
+  // Tells search engines that both name spellings and every profile belong to this site.
+  const home = `${siteUrl()}/${lang}`;
+  const names = [settings.siteName.en, settings.siteName.ar].filter(Boolean);
+  const siteLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl()}/#website`,
+        url: siteUrl(),
+        name: tl(settings.siteName, lang),
+        alternateName: names,
+        inLanguage: lang,
+        publisher: { "@id": `${siteUrl()}/#person` },
+      },
+      {
+        "@type": "Person",
+        "@id": `${siteUrl()}/#person`,
+        name: tl(settings.siteName, lang),
+        alternateName: names,
+        jobTitle: tl(content.seo.title, lang).split("|").pop()?.trim() || tl(settings.role, lang),
+        description: tl(content.seo.description, lang),
+        url: home,
+        image: `${siteUrl()}${about.image}`,
+        sameAs: published(content.socials).map((s) => s.url).filter((u) => u.startsWith("http")),
+        alumniOf: { "@type": "CollegeOrUniversity", name: "Ural Federal University" },
+      },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLd).replace(/</g, "\\u003c") }} />
       <PageHero
         badge={settings.availabilityEnabled ? tl(settings.availabilityText, lang) : undefined}
         title={tl(hero.titleLine1, lang)}

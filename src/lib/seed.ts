@@ -429,7 +429,7 @@ export function createSeed(): Content {
           }
         ],
         "stack": "Next.js, React, TypeScript, Tailwind CSS, Cloudflare Workers, Cloudflare D1, Cloudflare R2",
-        "liveUrl": "https://portfolio.mohamedselim.workers.dev",
+        "liveUrl": "https://mohamedselim.dev",
         "githubUrl": "https://github.com/mohamedselimdev/ms-portfolio",
         "featured": true,
         "projectStatus": "completed",

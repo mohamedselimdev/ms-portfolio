@@ -25,6 +25,10 @@
     // CMS uploads. Create with: npx wrangler r2 bucket create ms-portfolio-media
     { "binding": "MEDIA", "bucket_name": "ms-portfolio-media" }
   ],
+  "routes": [
+    { "pattern": "mohamedselim.dev", "custom_domain": true },
+    { "pattern": "www.mohamedselim.dev", "custom_domain": true }
+  ],
   "workers_dev": true,
   "preview_urls": false,
   "observability": { "enabled": true }

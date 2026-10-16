@@ -255,6 +255,10 @@ img {
     letter-spacing: 0;
     line-height: 1.3;
   }
+  /* Arabic dots and descenders need extra room when a heading wraps. */
+  [dir="rtl"] .heading-lg {
+    line-height: 1.45;
+  }
 
   .field {
     width: 100%;

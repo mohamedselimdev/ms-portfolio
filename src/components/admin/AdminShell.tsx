@@ -152,7 +152,7 @@ export function AdminShell({ groups, logo, name, avatar, children }: { groups: N
             </div>
             <div className="ms-auto flex items-center gap-2">
               <Suspense>
-                <LanguageSwitcher compact />
+                <LanguageSwitcher />
               </Suspense>
               <span className="hidden items-center gap-2.5 sm:flex">
                 {/* eslint-disable-next-line @next/next/no-img-element -- small avatar */}

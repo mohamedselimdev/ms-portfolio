@@ -1,12 +1,11 @@
 "use client";
 
 import { usePathname, useSearchParams } from "next/navigation";
-import { Languages } from "lucide-react";
 import { useI18n } from "@/i18n/client";
 import { LOCALE_COOKIE } from "@/i18n/config";
 import { cn } from "@/lib/utils";
 
-export function LanguageSwitcher({ className, compact = false }: { className?: string; compact?: boolean }) {
+export function LanguageSwitcher({ className }: { className?: string }) {
   const { locale, t } = useI18n();
   const pathname = usePathname();
   const search = useSearchParams().toString();
@@ -24,8 +23,7 @@ export function LanguageSwitcher({ className, compact = false }: { className?: s
       className={cn("btn btn-ghost btn-sm border border-line-strong", className)}
       aria-label={`${t.common.language}: ${t.common.switchTo}`}
     >
-      <Languages className="size-4" aria-hidden="true" />
-      {!compact && <span>{t.common.switchTo}</span>}
+      {t.common.switchTo}
     </a>
   );
 }

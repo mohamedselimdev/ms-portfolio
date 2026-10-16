@@ -78,8 +78,7 @@ export function Header({ nav, logo, name, role }: HeaderProps) {
 
         <div className="flex items-center gap-2">
           <Suspense>
-            <LanguageSwitcher className="hidden sm:inline-flex" />
-            <LanguageSwitcher className="sm:hidden" compact />
+            <LanguageSwitcher />
           </Suspense>
           <Link href={`/${locale}/contact`} className="btn btn-primary btn-sm hidden md:inline-flex lg:min-h-11 lg:px-5">
             {t.common.hireMe}

@@ -31,6 +31,8 @@ To run the real Workers runtime locally: copy `.dev.vars.example` to `.dev.vars`
 
 Checks: `npm run lint` · `npm run typecheck` · `npm run build`.
 
+The Hager El Desouky case study includes a desktop/mobile mockup and screenshots in `public/images/projects/hager/`. Migration `0002_hager_case_study.sql` appends the project to an existing CMS without replacing other content; new databases also receive it through the seed.
+
 ## Deploy to Cloudflare
 
 Already created in the account: D1 database `ms-portfolio-db` (id in `wrangler.jsonc`) and R2 bucket `ms-portfolio-media`.

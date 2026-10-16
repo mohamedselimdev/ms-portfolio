@@ -170,6 +170,109 @@ export function createSeed(): Content {
 
     projects: [
       {
+        "id": "prj-hager",
+        "order": 0,
+        "status": "published",
+        "updatedAt": "2026-10-16T12:00:00.000Z",
+        "slug": "hager-el-desouky",
+        "title": {
+          "en": "Hager El Desouky — Real Estate Portfolio",
+          "ar": "هاجر الدسوقي — بورتفوليو عقارات"
+        },
+        "summary": {
+          "en": "A bilingual real estate website with property search, viewing requests, WhatsApp contact and an admin dashboard.",
+          "ar": "موقع عقاري بالعربية والإنجليزية، مع بحث عن الوحدات وطلبات معاينة وتواصل عبر واتساب ولوحة إدارة."
+        },
+        "category": "web-apps",
+        "image": "/images/projects/hager/cover.webp",
+        "gallery": [
+          {
+            "src": "/images/projects/hager/cover.webp",
+            "caption": {
+              "en": "Website on desktop and mobile",
+              "ar": "الموقع على الكمبيوتر والموبايل"
+            }
+          },
+          {
+            "src": "/images/projects/hager/home.webp",
+            "caption": {
+              "en": "Arabic homepage",
+              "ar": "الصفحة الرئيسية بالعربية"
+            }
+          },
+          {
+            "src": "/images/projects/hager/properties.webp",
+            "caption": {
+              "en": "Property listings and filters; sample listings are labelled",
+              "ar": "الوحدات والفلاتر مع توضيح البيانات التجريبية"
+            }
+          },
+          {
+            "src": "/images/projects/hager/booking.webp",
+            "caption": {
+              "en": "Viewing and consultation request form",
+              "ar": "نموذج طلب معاينة أو استشارة"
+            }
+          },
+          {
+            "src": "/images/projects/hager/english.webp",
+            "caption": {
+              "en": "English homepage",
+              "ar": "الصفحة الرئيسية بالإنجليزية"
+            }
+          },
+          {
+            "src": "/images/projects/hager/mobile.webp",
+            "caption": {
+              "en": "Responsive mobile homepage",
+              "ar": "الصفحة الرئيسية على الموبايل"
+            }
+          }
+        ],
+        "stack": "Next.js, React, TypeScript, Tailwind CSS, Zod, Cloudflare Workers, Cloudflare KV",
+        "liveUrl": "https://hager-desouky-realestate.mohamedselim.workers.dev",
+        "githubUrl": "https://github.com/mohamedselimdev/hagereldesouky-portfolio",
+        "featured": true,
+        "projectStatus": "completed",
+        "year": "2026",
+        "role": {
+          "en": "Full-Stack Developer",
+          "ar": "مطوّر ويب متكامل"
+        },
+        "client": {
+          "en": "Hager El Desouky — Real Estate Consultant",
+          "ar": "هاجر الدسوقي — مستشارة عقارية"
+        },
+        "timeline": {
+          "en": "",
+          "ar": ""
+        },
+        "overview": {
+          "en": "A personal real estate website that introduces Hager El Desouky, presents available properties and gives visitors a direct way to ask questions or request a viewing. The interface supports Arabic and English, with a gold and charcoal visual identity.",
+          "ar": "موقع شخصي عقاري للتعريف بهاجر الدسوقي وعرض الوحدات المتاحة، مع وسيلة مباشرة للاستفسار وطلب المعاينة. يدعم العربية والإنجليزية بهوية بصرية تجمع الذهبي والألوان الداكنة."
+        },
+        "challenge": {
+          "en": "Bring the consultant profile, searchable listings and viewing requests into one experience that works on mobile and supports both right-to-left and left-to-right layouts.",
+          "ar": "جمع التعريف بالمستشارة والبحث عن الوحدات وطلبات المعاينة في تجربة واحدة مناسبة للموبايل، مع دعم اتجاهي الكتابة للعربية والإنجليزية."
+        },
+        "solution": {
+          "en": "Built a responsive Next.js website with bilingual content, property filters, individual listing pages, a validated booking form and WhatsApp links. A protected admin area manages properties, bookings and contact settings, with persistent data stored in Cloudflare KV.",
+          "ar": "طوّرت موقعًا متجاوبًا باستخدام Next.js، بمحتوى ثنائي اللغة وفلاتر للعقارات وصفحات للوحدات ونموذج حجز يتحقق من البيانات وروابط واتساب. تتيح لوحة إدارة محمية إدارة الوحدات والحجوزات وإعدادات التواصل، مع حفظ البيانات في Cloudflare KV."
+        },
+        "features": {
+          "en": "Arabic and English with RTL/LTR layouts\nResponsive desktop and mobile design\nLight and dark themes\nProperty search and filters\nIndividual property pages\nViewing and consultation requests\nWhatsApp contact links\nProtected admin for properties, bookings and settings\nClearly labelled demonstration listings",
+          "ar": "العربية والإنجليزية باتجاهي RTL وLTR\nتصميم متجاوب للكمبيوتر والموبايل\nمظهر فاتح وداكن\nبحث وفلاتر للوحدات\nصفحة تفاصيل لكل وحدة\nطلبات معاينة واستشارة\nروابط تواصل عبر واتساب\nلوحة إدارة محمية للوحدات والحجوزات والإعدادات\nتوضيح الوحدات التجريبية"
+        },
+        "responsibilities": {
+          "en": "Responsive interface implementation\nBilingual content and layout\nProperty and booking workflows\nServer-side form validation\nAdmin access protection\nCloudflare deployment",
+          "ar": "تنفيذ الواجهات المتجاوبة\nالمحتوى والتخطيط ثنائي اللغة\nمسارات عرض الوحدات والحجز\nالتحقق من النماذج على الخادم\nحماية الوصول للوحة الإدارة\nالنشر على Cloudflare"
+        },
+        "results": {
+          "en": "The website is live. Property and project examples remain labelled as demonstration content until verified listings are added.",
+          "ar": "الموقع منشور ويعمل. تظل أمثلة الوحدات والمشاريع موضّحة كمحتوى تجريبي لحين إضافة البيانات المعتمدة."
+        }
+      },
+      {
         "id": "prj-basaer",
         "order": 1,
         "status": "published",

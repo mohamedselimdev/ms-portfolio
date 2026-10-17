@@ -22,6 +22,9 @@ export async function generateMetadata({ params }: PageProps<"/[lang]">) {
   return isLocale(lang) ? pageMeta(lang, "/") : {};
 }
 
+// Descriptive, stable portrait file so Google associates the photo with the name (not the logo).
+const PORTRAIT = "/images/profile/mohamed-selim-web-developer.png";
+
 export default async function HomePage({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
@@ -50,6 +53,16 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         publisher: { "@id": `${siteUrl()}/#person` },
       },
       {
+        "@type": "WebPage",
+        "@id": `${home}#webpage`,
+        url: home,
+        name: tl(content.seo.title, lang),
+        isPartOf: { "@id": `${siteUrl()}/#website` },
+        about: { "@id": `${siteUrl()}/#person` },
+        primaryImageOfPage: { "@id": `${siteUrl()}/#portrait` },
+        inLanguage: lang,
+      },
+      {
         "@type": "Person",
         "@id": `${siteUrl()}/#person`,
         name: tl(settings.siteName, lang),
@@ -57,7 +70,15 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         jobTitle: tl(content.seo.title, lang).split("|").pop()?.trim() || tl(settings.role, lang),
         description: tl(content.seo.description, lang),
         url: home,
-        image: `${siteUrl()}${about.image}`,
+        image: {
+          "@type": "ImageObject",
+          "@id": `${siteUrl()}/#portrait`,
+          url: `${siteUrl()}${PORTRAIT}`,
+          contentUrl: `${siteUrl()}${PORTRAIT}`,
+          caption: `${settings.siteName.en} - Full-Stack Web Developer`,
+          width: 537,
+          height: 600,
+        },
         sameAs: published(content.socials).map((s) => s.url).filter((u) => u.startsWith("http")),
         alumniOf: { "@type": "CollegeOrUniversity", name: "Ural Federal University" },
       },

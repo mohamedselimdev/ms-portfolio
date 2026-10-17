@@ -40,7 +40,11 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
     name: settings.siteName.en,
     jobTitle: settings.role.en,
     url: `${siteUrl()}/${lang}`,
-    image: `${siteUrl()}${about.image}`,
+    image: {
+      "@type": "ImageObject",
+      url: `${siteUrl()}/images/profile/mohamed-selim-web-developer.png`,
+      caption: `${settings.siteName.en} - Full-Stack Web Developer`,
+    },
     sameAs,
     knowsLanguage: ["ar", "en", "ru"],
     alumniOf: { "@type": "CollegeOrUniversity", name: "Ural Federal University" },

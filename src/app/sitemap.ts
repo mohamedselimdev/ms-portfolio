@@ -12,12 +12,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const paths = ["", "/about", "/projects", "/services", "/contact"];
   const projects = content.projects.filter((p) => p.status === "published");
   // One entry per language, each listing both versions as hreflang alternates.
+  const portrait = `${base}/images/profile/mohamed-selim-web-developer.png`;
   const entry = (p: string, lastModified?: string, priority = 0.7) =>
     LOCALES.map((lang) => ({
       url: `${base}/${lang}${p}`,
       lastModified: lastModified ? new Date(lastModified) : new Date(),
       changeFrequency: "monthly" as const,
       priority,
+      ...(p === "" || p === "/about" ? { images: [portrait] } : {}),
       alternates: { languages: { en: `${base}/en${p}`, ar: `${base}/ar${p}` } },
     }));
   return [

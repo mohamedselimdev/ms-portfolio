@@ -38,6 +38,7 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
     "@context": "https://schema.org",
     "@type": "Person",
     name: settings.siteName.en,
+    alternateName: [settings.siteName.ar, "Mohamed Osama Selim", "محمد أسامة سليم", "المهندس محمد سليم", "الباشمهندس محمد سليم"].filter(Boolean),
     jobTitle: settings.role.en,
     url: `${siteUrl()}/${lang}`,
     image: {

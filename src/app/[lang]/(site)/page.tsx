@@ -39,7 +39,8 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
 
   // Tells search engines that both name spellings and every profile belong to this site.
   const home = `${siteUrl()}/${lang}`;
-  const names = [settings.siteName.en, settings.siteName.ar].filter(Boolean);
+  // Every spelling people search for, so Google ties them all to this one person.
+  const names = [...new Set([settings.siteName.en, settings.siteName.ar, "Mohamed Osama Selim", "محمد أسامة سليم", "المهندس محمد سليم", "الباشمهندس محمد سليم"].filter(Boolean))];
   const siteLd = {
     "@context": "https://schema.org",
     "@graph": [

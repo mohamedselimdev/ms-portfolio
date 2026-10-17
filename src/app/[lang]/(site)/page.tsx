@@ -95,7 +95,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         titleAfter={tl(hero.titleLine2, lang)}
         subtitle={tl(hero.subtitle, lang)}
         image={hero.image}
-        imageAlt={tl(settings.siteName, lang)}
+        imageAlt={`${tl(settings.siteName, lang)} - ${lang === "ar" ? "مهندس برمجيات ومطور ويب Full-Stack" : "Software Engineer & Full-Stack Web Developer"}`}
         watermark={settings.logo}
         signature={hero.showSignature ? settings.siteName.en : undefined}
         note={tl(hero.note, lang)}

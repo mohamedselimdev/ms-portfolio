@@ -60,7 +60,7 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
         highlight={tl(about.highlight, lang)}
         subtitle={tl(about.intro, lang)}
         image={content.hero.image}
-        imageAlt={tl(settings.siteName, lang)}
+        imageAlt={`${tl(settings.siteName, lang)} - ${lang === "ar" ? "مهندس برمجيات ومطور ويب Full-Stack" : "Software Engineer & Full-Stack Web Developer"}`}
         watermark={settings.logo}
         signature={content.hero.showSignature ? settings.siteName.en : undefined}
         note={tl(content.hero.note, lang)}

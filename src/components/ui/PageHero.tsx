@@ -65,8 +65,8 @@ export function PageHero({
               </div>
             </div>
             {(signature || note) && (
-              <div className="absolute top-6 end-5 z-10 flex max-w-[calc(100%-2.5rem)] flex-col items-end gap-5 sm:top-4 lg:top-6 lg:end-2">
-                {signature && <Signature name={signature} className="me-2 text-[1.9rem] xs:text-[2.25rem] sm:text-5xl lg:text-[3.5rem]" />}
+              <div className="absolute top-10 end-5 z-10 flex max-w-[calc(100%-2.5rem)] flex-col items-end gap-5 sm:top-4 lg:top-6 lg:end-2">
+                {signature && <Signature name={signature} className="me-2 text-[1.6rem] xs:text-[1.9rem] sm:text-5xl lg:text-[3.5rem]" />}
                 {note && (
                   <div className="hidden flex-col items-start sm:flex">
                     <p className="w-48 rounded-2xl border border-primary/45 bg-[#0a1733]/70 px-5 py-4 text-[0.95rem] leading-snug text-white/90 shadow-[inset_0_0_24px_rgba(31,107,255,0.12)] backdrop-blur-sm">{note}</p>

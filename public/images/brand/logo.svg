@@ -1,4 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="140 255 995 765" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="60 175 1155 925" fill="none" role="img" aria-label="Mohamed Selim logo">
+  <title>Mohamed Selim</title>
+  <!-- Solid navy tile: the letters are white, so without it they vanish on white backgrounds (Google Images, light UIs). -->
+  <rect x="60" y="175" width="1155" height="925" rx="130" fill="#050B18"/>
   <g fill="#FFFFFF">
     <path d="M148 263L500 512L660 357C700 318 752 292 808 292H977L1065 377H830C762 377 716 425 716 478C716 540 772 580 852 580H940C1050 582 1122 668 1122 775C1122 858 1080 918 1015 942L985 852L1070 808L1022 778C1012 705 962 664 905 664H770C690 664 637 610 637 531L486 660L236 452V715L362 878V1012L150 776C149 774 148 772 148 770Z"/>
     <path d="M498 690L605 601V735L720 848C732 858 748 862 764 862H816L826 938L882 832L978 932C974 950 952 962 915 962H740C690 962 650 945 620 915L498 795Z"/>

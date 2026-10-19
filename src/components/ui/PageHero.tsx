@@ -46,7 +46,7 @@ export function PageHero({
             {(highlight || titleAfter) && <br />}
             {highlight && <span className="text-highlight">{highlight}</span>} {titleAfter}
           </h1>
-          {subtitle && <p className="max-w-xl text-base leading-relaxed text-fg/80 sm:text-lg">{subtitle}</p>}
+          {subtitle && <p className="max-w-xl text-base leading-relaxed text-pretty text-fg/80 sm:text-lg">{subtitle}</p>}
           {children}
         </div>
 

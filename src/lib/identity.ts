@@ -45,19 +45,10 @@ export const NAME_VARIANTS = {
   russian: ["Мохамед Селим", "Мохаммед Селим", "Мухаммед Селим", "Мохамед Осама Селим", "Мохамед Селим веб-разработчик"],
 } as const;
 
-/** Spellings shown as visible text on the site (footer, About) so people and Google see them on the page itself. */
+/** Real name spellings shown once on the About page; title-style variants stay in structured data only. */
 export const VISIBLE_NAMES = {
-  arabic: [
-    "محمد سليم",
-    "محمد أسامة سليم",
-    "المهندس محمد سليم",
-    "مهندس محمد سليم",
-    "الباشمهندس محمد سليم",
-    "باشمهندس محمد سليم",
-    "مهندس برمجيات محمد سليم",
-    "مطور ويب محمد سليم",
-  ],
-  latin: ["Mohamed Selim", "Mohamed Osama Selim", "Mohammed Selim", "Eng. Mohamed Selim"],
+  arabic: ["محمد أسامة سليم"],
+  latin: ["Mohamed Osama Selim", "Mohammed Selim"],
 } as const;
 
 /** Arabic + English name used in image alt text and the page title suffix. */

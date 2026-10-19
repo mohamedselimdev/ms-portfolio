@@ -188,6 +188,22 @@ export const SECTIONS: Section[] = [
   },
   {
     kind: "collection",
+    key: "packages",
+    group: "portfolio",
+    icon: "tags",
+    preview: "/services",
+    titleField: "name",
+    subtitleField: "tagline",
+    fields: [
+      { name: "name", type: "ltext", required: true, max: 40 },
+      { name: "tagline", type: "ltext", max: 120 },
+      { name: "priceFrom", type: "number", min: 0, max: 100000 },
+      { name: "popular", type: "boolean" },
+      { name: "features", type: "llines", max: 800, full: true },
+    ],
+  },
+  {
+    kind: "collection",
     key: "process",
     group: "portfolio",
     icon: "workflow",

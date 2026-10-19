@@ -7,7 +7,7 @@ import { isLocale, tl } from "@/i18n/config";
 import { getSiteContent, published } from "@/lib/content";
 import { pageMeta } from "@/lib/metadata";
 import { siteUrl } from "@/lib/utils";
-import { ALL_NAMES } from "@/lib/identity";
+import { ALL_NAMES, portraitAlt } from "@/lib/identity";
 import { Icon } from "@/components/icons";
 import { PageHero } from "@/components/ui/PageHero";
 import { TechChips } from "@/components/ui/TechChips";
@@ -101,7 +101,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         titleAfter={tl(hero.titleLine2, lang)}
         subtitle={tl(hero.subtitle, lang)}
         image={hero.image}
-        imageAlt={`${tl(settings.siteName, lang)} - ${lang === "ar" ? "مهندس برمجيات ومطور ويب Full-Stack" : "Software Engineer & Full-Stack Web Developer"}`}
+        imageAlt={portraitAlt(lang)}
         watermark={settings.logo}
         signature={hero.showSignature ? settings.siteName.en : undefined}
         note={tl(hero.note, lang)}

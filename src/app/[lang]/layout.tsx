@@ -7,7 +7,7 @@ import { getMessages } from "@/i18n";
 import { LOCALES, dirOf, isLocale, list, tl } from "@/i18n/config";
 import { getSiteContent } from "@/lib/content";
 import { siteUrl } from "@/lib/utils";
-import { nameKeywords } from "@/lib/identity";
+import { NAME_PAIR, nameKeywords } from "@/lib/identity";
 import type { Theme } from "@/lib/types";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
@@ -38,11 +38,11 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
   const images = seo.ogImage ? [{ url: seo.ogImage }] : undefined;
   return {
     metadataBase: new URL(siteUrl()),
-    title: { default: title, template: `%s | ${tl(settings.siteName, lang)}` },
+    title: { default: title, template: lang === "ar" ? `%s | ${NAME_PAIR.ar} - ${NAME_PAIR.en}` : `%s | ${NAME_PAIR.en} - ${NAME_PAIR.ar}` },
     description,
     keywords: [...new Set([...list(tl(seo.keywords, lang)), ...nameKeywords(lang)])],
     applicationName: tl(settings.siteName, lang),
-    authors: [{ name: settings.siteName.en }],
+    authors: [{ name: settings.siteName.en }, { name: settings.siteName.ar || NAME_PAIR.ar }, { name: "Mohamed Osama Selim" }, { name: "محمد أسامة سليم" }],
     creator: settings.siteName.en,
     alternates: {
       canonical: `/${lang}`,

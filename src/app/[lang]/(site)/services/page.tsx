@@ -2,10 +2,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Boxes, CheckCircle2 } from "lucide-react";
 import { getMessages } from "@/i18n";
-import { isLocale, tl } from "@/i18n/config";
+import { isLocale, lines, tl } from "@/i18n/config";
 import { getSiteContent, published } from "@/lib/content";
 import { pageMeta } from "@/lib/metadata";
 import { siteUrl } from "@/lib/utils";
+import { alternateNames } from "@/lib/identity";
 import { Icon } from "@/components/icons";
 import { PageHero } from "@/components/ui/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -28,6 +29,7 @@ export default async function ServicesPage({ params }: PageProps<"/[lang]/servic
   const services = published(content.services);
   const steps = published(content.process);
   const benefits = published(content.benefits);
+  const packages = published(content.packages);
   const faqs = published(content.faqs).filter((f) => f.placement !== "contact");
 
   const faqLd = faqs.length
@@ -43,6 +45,16 @@ export default async function ServicesPage({ params }: PageProps<"/[lang]/servic
     name: `${content.settings.siteName.en} — ${content.settings.role.en}`,
     url: `${siteUrl()}/${lang}/services`,
     areaServed: "Worldwide",
+    alternateName: alternateNames(content.settings.siteName.en),
+    founder: { "@id": `${siteUrl()}/#person` },
+    makesOffer: packages
+      .filter((p) => p.priceFrom > 0)
+      .map((p) => ({
+        "@type": "Offer",
+        name: tl(p.name, lang),
+        description: tl(p.tagline, lang),
+        priceSpecification: { "@type": "PriceSpecification", minPrice: p.priceFrom, priceCurrency: "USD" },
+      })),
     hasOfferCatalog: { "@type": "OfferCatalog", name: "Web development services", itemListElement: services.map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: tl(s.title, lang), description: tl(s.description, lang) } })) },
   };
 
@@ -110,6 +122,50 @@ export default async function ServicesPage({ params }: PageProps<"/[lang]/servic
           </article>
         </div>
       </section>
+
+      {packages.length > 0 && (
+        <section className="container-x py-10 sm:py-14" aria-labelledby="packages-title">
+          <SectionHeading eyebrow={t.services.packagesEyebrow} title={t.services.packagesTitle} subtitle={t.services.packagesSubtitle} id="packages-title" />
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {packages.map((p, i) => (
+              <article
+                key={p.id}
+                className={`card relative flex flex-col gap-4 p-5 sm:p-6 ${p.popular ? "glow-ring border-primary/50" : ""}`}
+                data-reveal
+                style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}
+              >
+                {p.popular && <span className="absolute -top-3 start-5 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-white">{t.services.packagesPopular}</span>}
+                <div>
+                  <h3 className="heading-md text-xl">{tl(p.name, lang)}</h3>
+                  <p className="mt-1 text-sm text-muted">{tl(p.tagline, lang)}</p>
+                </div>
+                <p className="flex items-baseline gap-2">
+                  {p.priceFrom > 0 ? (
+                    <>
+                      <span className="text-sm text-muted">{t.services.packagesFrom}</span>
+                      <span className="font-display text-3xl font-extrabold">${p.priceFrom}</span>
+                    </>
+                  ) : (
+                    <span className="font-display text-2xl font-extrabold">{t.services.packagesCustom}</span>
+                  )}
+                </p>
+                <ul className="flex flex-col gap-2 text-sm">
+                  {lines(p.features, lang).map((f) => (
+                    <li key={f} className="flex items-start gap-2">
+                      <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <Link href={`/${lang}/contact`} className={`btn mt-auto self-start ${p.popular ? "btn-primary" : "btn-outline"}`}>
+                  {t.services.packagesCta}
+                  <ArrowRight className="size-4 rtl:-scale-x-100" aria-hidden="true" />
+                </Link>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
 
       {steps.length > 0 && (
         <section className="container-x py-10 sm:py-14" aria-labelledby="process-title">

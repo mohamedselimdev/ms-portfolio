@@ -3,6 +3,7 @@ import type { Content, Locale } from "@/lib/types";
 import type { Messages } from "@/i18n";
 import { href, tl } from "@/i18n/config";
 import { published } from "@/lib/content";
+import { NAME_PAIR, VISIBLE_NAMES } from "@/lib/identity";
 import { SocialIcon } from "@/components/icons";
 import { LogoMark } from "./Logo";
 
@@ -52,8 +53,17 @@ export function Footer({ content, locale, t }: { content: Content; locale: Local
         )}
       </div>
       <div className="border-t border-line">
-        <p className="container-x py-5 text-center text-xs text-subtle">
-          © {new Date().getFullYear()} {tl(settings.siteName, locale)}. {t.common.rightsReserved}
+        <p className="container-x pt-5 text-center text-xs leading-relaxed text-muted">
+          <span lang="ar" dir="rtl">
+            {VISIBLE_NAMES.arabic.join(" · ")}
+          </span>
+          <span aria-hidden="true"> | </span>
+          <span lang="en" dir="ltr">
+            {VISIBLE_NAMES.latin.join(" · ")}
+          </span>
+        </p>
+        <p className="container-x py-4 text-center text-xs text-subtle">
+          © {new Date().getFullYear()} {tl(settings.siteName, locale)} · {locale === "ar" ? NAME_PAIR.en : NAME_PAIR.ar}. {t.common.rightsReserved}
         </p>
       </div>
     </footer>

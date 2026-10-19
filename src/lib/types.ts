@@ -138,6 +138,15 @@ export interface Service extends BaseItem {
   features: L;
 }
 
+export interface Package extends BaseItem {
+  name: L;
+  tagline: L;
+  /** Starting price in USD. 0 means "custom quote" (no number is shown). */
+  priceFrom: number;
+  features: L;
+  popular: boolean;
+}
+
 export interface ProcessStep extends BaseItem {
   title: L;
   description: L;
@@ -227,6 +236,7 @@ export interface Collections {
   categories: Category[];
   projects: Project[];
   services: Service[];
+  packages: Package[];
   process: ProcessStep[];
   benefits: Benefit[];
   faqs: Faq[];

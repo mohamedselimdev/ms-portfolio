@@ -803,6 +803,43 @@ export function createSeed(): Content {
       },
     ],
 
+    // Starting prices only. Each project is quoted on its real scope.
+    packages: [
+      {
+        ...base("pkg-starter", 1),
+        name: l("Starter", "الأساسية"),
+        tagline: l("A fast, professional online presence", "حضور احترافي وسريع على الإنترنت"),
+        priceFrom: 150,
+        popular: false,
+        features: l(
+          "Landing page or small business site\nResponsive on every device\nArabic, English or both (RTL/LTR)\nContact form & WhatsApp button\nBasic SEO setup",
+          "صفحة هبوط أو موقع صغير لنشاطك\nمتجاوب مع كل الأجهزة\nعربي أو إنجليزي أو الاثنين (RTL/LTR)\nنموذج تواصل وزر واتساب\nإعداد أساسي لمحركات البحث",
+        ),
+      },
+      {
+        ...base("pkg-business", 2),
+        name: l("Business", "الأعمال"),
+        tagline: l("A full website you can manage yourself", "موقع متكامل تديره بنفسك"),
+        priceFrom: 400,
+        popular: true,
+        features: l(
+          "Multi-page bilingual website\nAdmin dashboard to edit your content\nBooking or inquiry forms\nAdvanced SEO & Google visibility\nDeployment on fast cloud hosting\nPost-launch support",
+          "موقع متعدد الصفحات ثنائي اللغة\nلوحة تحكم لتعديل المحتوى بنفسك\nنماذج حجز أو استفسار\nSEO متقدم وظهور في جوجل\nنشر على استضافة سحابية سريعة\nدعم بعد الإطلاق",
+        ),
+      },
+      {
+        ...base("pkg-custom", 3),
+        name: l("Custom", "حسب الطلب"),
+        tagline: l("Stores, booking systems & web apps", "متاجر وأنظمة حجز وتطبيقات ويب"),
+        priceFrom: 0,
+        popular: false,
+        features: l(
+          "E-commerce store or booking platform\nDashboards with roles & permissions\nDatabase & API design\nPayments or WhatsApp ordering\nScoped and quoted to your needs",
+          "متجر إلكتروني أو منصة حجز\nلوحات تحكم بصلاحيات وأدوار\nتصميم قاعدة بيانات وواجهات API\nدفع إلكتروني أو طلب عبر واتساب\nنطاق وسعر حسب احتياجك",
+        ),
+      },
+    ],
+
     process: [
       { ...base("prc-1", 1), icon: "message-square", title: l("Discovery", "الاستكشاف"), description: l("We discuss your goals, requirements and vision to understand your needs.", "نناقش أهدافك ومتطلباتك ورؤيتك لفهم احتياجاتك.") },
       { ...base("prc-2", 2), icon: "file-text", title: l("Plan & Design", "التخطيط والتصميم"), description: l("I plan the structure, choose the right technologies and create a roadmap.", "أخطط للهيكل وأختار التقنيات المناسبة وأضع خارطة طريق.") },

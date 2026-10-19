@@ -7,6 +7,7 @@ import { isLocale, tl } from "@/i18n/config";
 import { getSiteContent, published } from "@/lib/content";
 import { pageMeta } from "@/lib/metadata";
 import { siteUrl } from "@/lib/utils";
+import { ALL_NAMES } from "@/lib/identity";
 import { Icon } from "@/components/icons";
 import { PageHero } from "@/components/ui/PageHero";
 import { TechChips } from "@/components/ui/TechChips";
@@ -40,7 +41,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
   // Tells search engines that both name spellings and every profile belong to this site.
   const home = `${siteUrl()}/${lang}`;
   // Every spelling people search for, so Google ties them all to this one person.
-  const names = [...new Set([settings.siteName.en, settings.siteName.ar, "Mohamed Osama Selim", "محمد أسامة سليم", "المهندس محمد سليم", "الباشمهندس محمد سليم"].filter(Boolean))];
+  const names = [...new Set([settings.siteName.en, settings.siteName.ar, ...ALL_NAMES].filter(Boolean))].filter((n) => n !== "mohamedselim.dev");
   const siteLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -82,6 +83,10 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         },
         sameAs: published(content.socials).map((s) => s.url).filter((u) => u.startsWith("http")),
         alumniOf: { "@type": "CollegeOrUniversity", name: "Ural Federal University" },
+        knowsLanguage: ["ar", "en", "ru"],
+        knowsAbout: published(content.skills).map((s) => s.name),
+        email: `mailto:${settings.email}`,
+        homeLocation: { "@type": "Place", name: "Yekaterinburg, Russia" },
       },
     ],
   };

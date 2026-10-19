@@ -6,6 +6,7 @@ import { hasText, isLocale, tl } from "@/i18n/config";
 import { getSiteContent, published } from "@/lib/content";
 import { pageMeta } from "@/lib/metadata";
 import { siteUrl } from "@/lib/utils";
+import { ALL_NAMES } from "@/lib/identity";
 import { Icon, TechIcon } from "@/components/icons";
 import { PageHero } from "@/components/ui/PageHero";
 import { StatsBar } from "@/components/ui/StatsBar";
@@ -38,7 +39,7 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
     "@context": "https://schema.org",
     "@type": "Person",
     name: settings.siteName.en,
-    alternateName: [settings.siteName.ar, "Mohamed Osama Selim", "محمد أسامة سليم", "المهندس محمد سليم", "الباشمهندس محمد سليم"].filter(Boolean),
+    alternateName: [...new Set([settings.siteName.ar, ...ALL_NAMES].filter(Boolean))].filter((n) => n !== "mohamedselim.dev" && n !== settings.siteName.en),
     jobTitle: settings.role.en,
     url: `${siteUrl()}/${lang}`,
     image: {

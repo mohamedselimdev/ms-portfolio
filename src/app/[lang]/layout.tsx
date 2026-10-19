@@ -7,6 +7,7 @@ import { getMessages } from "@/i18n";
 import { LOCALES, dirOf, isLocale, list, tl } from "@/i18n/config";
 import { getSiteContent } from "@/lib/content";
 import { siteUrl } from "@/lib/utils";
+import { nameKeywords } from "@/lib/identity";
 import type { Theme } from "@/lib/types";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
@@ -39,7 +40,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
     metadataBase: new URL(siteUrl()),
     title: { default: title, template: `%s | ${tl(settings.siteName, lang)}` },
     description,
-    keywords: list(tl(seo.keywords, lang)),
+    keywords: [...new Set([...list(tl(seo.keywords, lang)), ...nameKeywords(lang)])],
     applicationName: tl(settings.siteName, lang),
     authors: [{ name: settings.siteName.en }],
     creator: settings.siteName.en,

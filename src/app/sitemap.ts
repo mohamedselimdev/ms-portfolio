@@ -13,7 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const paths = ["", "/about", "/projects", "/services", "/contact"];
   const projects = content.projects.filter((p) => p.status === "published");
   // One entry per language, each listing both versions as hreflang alternates.
-  const photos = [`${base}/images/profile/mohamed-selim-web-developer.png`, ...PHOTOS.map((ph) => `${base}${ph.src}`)];
+  const photos = [`${base}/images/profile/mohamed-selim-web-developer.png`, ...PHOTOS.map((ph) => `${base}${ph.src}`), `${base}/images/brand/logo.svg`];
   const entry = (p: string, lastModified?: string, priority = 0.7, images: string[] = []) =>
     LOCALES.map((lang) => ({
       url: `${base}/${lang}${p}`,

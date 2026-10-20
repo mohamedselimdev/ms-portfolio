@@ -171,7 +171,7 @@ export function createSeed(): Content {
     projects: [
       {
         "id": "prj-hager",
-        "order": 0,
+        "order": 1,
         "status": "published",
         "updatedAt": "2026-10-16T12:00:00.000Z",
         "slug": "hager-el-desouky",
@@ -273,8 +273,104 @@ export function createSeed(): Content {
         }
       },
       {
+        "id": "prj-menna",
+        "order": 2,
+        "status": "published",
+        "updatedAt": "2026-10-20T11:40:50.201Z",
+        "slug": "menna-mostafa",
+        "title": {
+          "en": "Menna Mostafa — Real Estate Website & Dashboard",
+          "ar": "منة مصطفى — موقع عقاري ولوحة تحكم"
+        },
+        "summary": {
+          "en": "A bilingual real estate website for a property consultant: listings with search, viewing requests, WhatsApp contact and a dashboard to edit the whole site.",
+          "ar": "موقع عقاري بالعربية والإنجليزية لمستشارة عقارية: عرض الوحدات مع البحث، وطلبات المعاينة، والتواصل عبر واتساب، ولوحة تحكم لتعديل الموقع كله."
+        },
+        "category": "web-apps",
+        "image": "/images/projects/menna/cover.webp",
+        "gallery": [
+          {
+            "src": "/images/projects/menna/cover.webp",
+            "caption": {
+              "en": "Homepage on desktop and mobile",
+              "ar": "الصفحة الرئيسية على الكمبيوتر والموبايل"
+            }
+          },
+          {
+            "src": "/images/projects/menna/properties.webp",
+            "caption": {
+              "en": "Property listings with search and filters; sample listings are labelled",
+              "ar": "الوحدات مع البحث والفلاتر، والوحدات التجريبية موضّحة"
+            }
+          },
+          {
+            "src": "/images/projects/menna/booking.webp",
+            "caption": {
+              "en": "Viewing and consultation request form",
+              "ar": "نموذج طلب معاينة أو استشارة"
+            }
+          },
+          {
+            "src": "/images/projects/menna/about.webp",
+            "caption": {
+              "en": "About page",
+              "ar": "صفحة من أنا"
+            }
+          },
+          {
+            "src": "/images/projects/menna/mobile.webp",
+            "caption": {
+              "en": "Mobile views",
+              "ar": "شاشات الموبايل"
+            }
+          }
+        ],
+        "stack": "Next.js, React, TypeScript, Tailwind CSS, Zod, Cloudflare Workers, Cloudflare KV",
+        "liveUrl": "https://menna-realestate.mohamedselim.workers.dev",
+        "githubUrl": "https://github.com/mohamedselimdev/mennaportfolio",
+        "featured": true,
+        "projectStatus": "completed",
+        "year": "2026",
+        "role": {
+          "en": "Full-Stack Developer",
+          "ar": "مطوّر ويب متكامل"
+        },
+        "client": {
+          "en": "Menna Mostafa — Real Estate Consultant",
+          "ar": "منة مصطفى — مستشارة عقارية"
+        },
+        "timeline": {
+          "en": "",
+          "ar": ""
+        },
+        "overview": {
+          "en": "A personal website for real estate consultant Menna Mostafa. Visitors browse available units, search by type, area and budget, and request a viewing or a consultation, while Menna manages listings, bookings and every text and image on the site herself.",
+          "ar": "موقع شخصي للمستشارة العقارية منة مصطفى. الزائر يتصفح الوحدات المتاحة، ويبحث بالنوع والمنطقة والميزانية، ويطلب معاينة أو استشارة، بينما تدير منة الوحدات والحجوزات وكل نصوص الموقع وصوره بنفسها."
+        },
+        "challenge": {
+          "en": "Give one consultant a professional bilingual presence that turns visitors into viewing requests, and let her update listings and content without a developer.",
+          "ar": "بناء حضور احترافي بلغتين لمستشارة واحدة يحوّل الزوار إلى طلبات معاينة، مع إمكانية تحديث الوحدات والمحتوى بنفسها من غير مطوّر."
+        },
+        "solution": {
+          "en": "A Next.js website on Cloudflare Workers with data and uploaded images stored in Cloudflare KV. Listings support search by type, area and budget, booking requests are validated on the server with Zod, and WhatsApp buttons use the number set in the dashboard. A protected admin area edits texts in both languages, features, contact details, images and property listings, and manages viewing requests.",
+          "ar": "موقع Next.js على Cloudflare Workers، والبيانات والصور المرفوعة محفوظة في Cloudflare KV. البحث في الوحدات بالنوع والمنطقة والميزانية، وطلبات الحجز يتم التحقق منها على السيرفر بـ Zod، وأزرار واتساب مربوطة بالرقم المحفوظ في لوحة التحكم. لوحة إدارة محمية لتعديل النصوص باللغتين والمميزات وبيانات التواصل والصور والوحدات، وإدارة طلبات المعاينة."
+        },
+        "features": {
+          "en": "Arabic and English with RTL/LTR layouts\nProperty search by type, area and budget\nIndividual property pages\nViewing and consultation requests\nWhatsApp contact buttons\nDashboard for texts, images, features and contact details\nBooking management from the dashboard\nImage uploads with size limits\nLight and dark themes\nResponsive desktop and mobile design\nClearly labelled sample listings",
+          "ar": "العربية والإنجليزية باتجاهي RTL وLTR\nالبحث في الوحدات بالنوع والمنطقة والميزانية\nصفحة تفاصيل لكل وحدة\nطلبات معاينة واستشارة\nأزرار تواصل عبر واتساب\nلوحة تحكم للنصوص والصور والمميزات وبيانات التواصل\nإدارة الحجوزات من لوحة التحكم\nرفع صور مع حد للحجم\nوضع فاتح وداكن\nتصميم متجاوب للكمبيوتر والموبايل\nتوضيح الوحدات التجريبية"
+        },
+        "responsibilities": {
+          "en": "Responsive bilingual interface\nProperty search and booking workflows\nServer-side validation\nProtected admin dashboard\nImage uploads and storage on Cloudflare KV\nDeployment to Cloudflare Workers",
+          "ar": "واجهة متجاوبة بلغتين\nمسارات البحث في الوحدات والحجز\nالتحقق من المدخلات على السيرفر\nلوحة إدارة محمية\nرفع الصور وتخزينها على Cloudflare KV\nالنشر على Cloudflare Workers"
+        },
+        "results": {
+          "en": "The website is live. Sample listings stay labelled until verified properties are added.",
+          "ar": "الموقع منشور ويعمل. تظل الوحدات التجريبية موضّحة لحين إضافة الوحدات المعتمدة."
+        }
+      },
+      {
         "id": "prj-basaer",
-        "order": 1,
+        "order": 3,
         "status": "published",
         "updatedAt": "2026-10-03T01:34:07.959Z",
         "slug": "basaer-medical-center",
@@ -377,7 +473,7 @@ export function createSeed(): Content {
       },
       {
         "id": "prj-hema",
-        "order": 2,
+        "order": 4,
         "status": "published",
         "updatedAt": "2026-10-03T01:34:07.959Z",
         "slug": "hema-phone",
@@ -473,7 +569,7 @@ export function createSeed(): Content {
       },
       {
         "id": "prj-portfolio",
-        "order": 3,
+        "order": 5,
         "status": "published",
         "updatedAt": "2026-10-09T20:21:25.217Z",
         "slug": "portfolio-cms",
@@ -576,7 +672,7 @@ export function createSeed(): Content {
       },
       {
         "id": "prj-al-daftar",
-        "order": 4,
+        "order": 6,
         "status": "published",
         "updatedAt": "2026-10-12T07:54:15.309Z",
         "slug": "al-daftar",
@@ -679,7 +775,7 @@ export function createSeed(): Content {
       },
       {
         "id": "prj-collabflow",
-        "order": 5,
+        "order": 7,
         "status": "published",
         "updatedAt": "2026-10-12T07:33:14.730Z",
         "slug": "collabflow",
@@ -761,7 +857,7 @@ export function createSeed(): Content {
       },
       {
         "id": "prj-ryadom",
-        "order": 6,
+        "order": 8,
         "status": "published",
         "updatedAt": "2026-10-12T07:33:14.730Z",
         "slug": "ryadom",
@@ -1296,6 +1392,46 @@ export function createSeed(): Content {
         "type": "image/webp",
         "size": 0,
         "createdAt": "2026-10-12T07:54:15.309Z"
+      },
+      {
+        "id": "m-menna-cover",
+        "url": "/images/projects/menna/cover.webp",
+        "name": "menna-cover.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-20T11:40:50.201Z"
+      },
+      {
+        "id": "m-menna-properties",
+        "url": "/images/projects/menna/properties.webp",
+        "name": "menna-properties.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-20T11:40:50.201Z"
+      },
+      {
+        "id": "m-menna-booking",
+        "url": "/images/projects/menna/booking.webp",
+        "name": "menna-booking.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-20T11:40:50.201Z"
+      },
+      {
+        "id": "m-menna-about",
+        "url": "/images/projects/menna/about.webp",
+        "name": "menna-about.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-20T11:40:50.201Z"
+      },
+      {
+        "id": "m-menna-mobile",
+        "url": "/images/projects/menna/mobile.webp",
+        "name": "menna-mobile.webp",
+        "type": "image/webp",
+        "size": 0,
+        "createdAt": "2026-10-20T11:40:50.201Z"
       }
     ],
     activity: [],

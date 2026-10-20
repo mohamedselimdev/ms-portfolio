@@ -33,7 +33,7 @@ export function PhotoCarousel({
 
   return (
     <div
-      className="relative mx-auto max-w-3xl"
+      className="relative mx-auto max-w-md"
       role="region"
       aria-roledescription="carousel"
       aria-label={label}
@@ -42,7 +42,7 @@ export function PhotoCarousel({
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
     >
-      <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-line bg-surface shadow-[0_30px_80px_-30px_rgba(31,107,255,0.45)] sm:aspect-[4/3]">
+      <div className="relative aspect-[3/4] overflow-hidden rounded-3xl border border-line bg-surface shadow-[0_30px_80px_-30px_rgba(31,107,255,0.45)]">
         {slides.map((s, i) => (
           <figure
             key={s.src}
@@ -50,7 +50,7 @@ export function PhotoCarousel({
             className={cn("absolute inset-0 transition-opacity duration-1000 ease-in-out", i === index ? "opacity-100" : "opacity-0")}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={s.src} alt={s.alt} width={s.width} height={s.height} loading="lazy" className="h-full w-full object-cover object-[50%_22%]" />
+            <img src={s.src} alt={s.alt} width={s.width} height={s.height} loading="lazy" className="h-full w-full object-contain" />
           </figure>
         ))}
 

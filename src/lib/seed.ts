@@ -84,7 +84,7 @@ export function createSeed(): Content {
         "البرمجة بالنسبة لي أكثر من مجرد كود — إنها حل مشكلات حقيقية وتحويل الأفكار إلى قيمة حقيقية.",
       ),
       image: "/images/profile/portrait-v2.webp",
-      secondaryImage: "/images/profile/portrait-suit.webp",
+      secondaryImage: "",
       languages: l("Arabic (native) · Russian (B2) · English (B1)", "العربية (اللغة الأم) · الروسية (B2) · الإنجليزية (B1)"),
       degree: l("BSc in Software Engineering", "بكالوريوس هندسة البرمجيات"),
       university: l("Ural Federal University, Russia", "جامعة الأورال الفيدرالية، روسيا"),
@@ -1133,14 +1133,6 @@ export function createSeed(): Content {
         "id": "m-portrait",
         "url": "/images/profile/portrait-v2.webp",
         "name": "portrait-v2.webp",
-        "type": "image/webp",
-        "size": 0,
-        "createdAt": "2026-01-01T00:00:00.000Z"
-      },
-      {
-        "id": "m-portrait-suit",
-        "url": "/images/profile/portrait-suit.webp",
-        "name": "portrait-suit.webp",
         "type": "image/webp",
         "size": 0,
         "createdAt": "2026-01-01T00:00:00.000Z"

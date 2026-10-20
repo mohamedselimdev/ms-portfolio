@@ -144,14 +144,19 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
         )}
       </section>
 
-      <section className="container-x pb-16 sm:pb-20" aria-labelledby="photos-title">
+      <section className="container-x grid items-center gap-10 pb-16 sm:pb-20 lg:grid-cols-2 lg:gap-16" aria-labelledby="photos-title">
         <SectionHeading
           eyebrow={lang === "ar" ? "صور" : "Gallery"}
           title={lang === "ar" ? "لحظات من" : "Moments from"}
           highlight={lang === "ar" ? "رحلتي" : "my journey"}
+          subtitle={
+            lang === "ar"
+              ? "من التخرج في جامعة الأورال الفيدرالية إلى الفعاليات الطلابية والجامعية."
+              : "From graduating at Ural Federal University to student and university events."
+          }
           id="photos-title"
         />
-        <div className="mt-10" data-reveal>
+        <div data-reveal>
           <PhotoCarousel
             label={lang === "ar" ? "صور محمد سليم" : "Photos of Mohamed Selim"}
             prevLabel={lang === "ar" ? "الصورة السابقة" : "Previous photo"}

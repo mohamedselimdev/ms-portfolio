@@ -43,21 +43,39 @@ export function nameKeywords(lang: Locale): string[] {
 /** Photos of Mohamed Selim, shown on the About page and listed for image search. */
 export const PHOTOS = [
   {
-    src: "/images/profile/portrait-v2.webp",
+    src: "/images/profile/gallery/mohamed-selim-graduation.webp",
     width: 900,
-    height: 1083,
-    alt: { en: "Mohamed Selim, software engineer and full-stack web developer", ar: "محمد سليم، مهندس برمجيات ومطوّر ويب متكامل" },
+    height: 1200,
+    alt: { en: "Mohamed Selim at his graduation", ar: "محمد سليم في حفل تخرجه" },
   },
   {
-    src: "/images/profile/portrait-suit.webp",
+    src: "/images/profile/gallery/mohamed-selim-ural-federal-university.webp",
+    width: 900,
+    height: 1200,
+    alt: { en: "Mohamed Selim with his diploma at Ural Federal University", ar: "محمد سليم بشهادته أمام جامعة الأورال الفيدرالية" },
+  },
+  {
+    src: "/images/profile/gallery/mohamed-selim-campus.webp",
+    width: 900,
+    height: 939,
+    alt: { en: "Mohamed Selim on campus", ar: "محمد سليم في الحرم الجامعي" },
+  },
+  {
+    src: "/images/profile/gallery/mohamed-selim-blue-suit.webp",
     width: 900,
     height: 1127,
     alt: { en: "Mohamed Selim in a blue suit", ar: "محمد سليم ببدلة زرقاء" },
   },
   {
-    src: "/images/profile/portrait-street.webp",
+    src: "/images/profile/gallery/mohamed-selim-speaking.webp",
     width: 900,
-    height: 1431,
-    alt: { en: "Mohamed Selim walking in the city", ar: "محمد سليم يمشي في المدينة" },
+    height: 1600,
+    alt: { en: "Mohamed Selim speaking at a university event", ar: "محمد سليم يتحدث في فعالية جامعية" },
+  },
+  {
+    src: "/images/profile/gallery/mohamed-selim-media-team.webp",
+    width: 900,
+    height: 1200,
+    alt: { en: "Mohamed Selim covering a student event with his camera", ar: "محمد سليم يغطي فعالية طلابية بالكاميرا" },
   },
 ] as const;

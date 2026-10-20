@@ -143,12 +143,35 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
         )}
       </section>
 
-      <section className="container-x pb-16 sm:pb-20" aria-label={lang === "ar" ? "صور محمد سليم" : "Photos of Mohamed Selim"}>
-        <ul className="grid max-w-2xl grid-cols-3 gap-3">
-          {PHOTOS.map((p) => (
-            <li key={p.src} className="overflow-hidden rounded-2xl border border-line">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={p.src} alt={tl(p.alt, lang)} width={p.width} height={p.height} loading="lazy" className="aspect-[4/5] w-full object-cover object-top" />
+      <section className="container-x pb-16 sm:pb-20" aria-labelledby="photos-title">
+        <SectionHeading
+          eyebrow={lang === "ar" ? "صور" : "Gallery"}
+          title={lang === "ar" ? "لحظات من" : "Moments from"}
+          highlight={lang === "ar" ? "رحلتي" : "my journey"}
+          id="photos-title"
+        />
+        <ul className="mt-10 grid auto-rows-[10.5rem] grid-flow-dense grid-cols-2 gap-3 sm:auto-rows-[13rem] sm:grid-cols-3 sm:gap-4 lg:auto-rows-[15rem]">
+          {PHOTOS.map((p, i) => (
+            <li
+              key={p.src}
+              data-reveal
+              style={{ "--reveal-delay": `${i * 60}ms` } as React.CSSProperties}
+              className={i === 0 ? "col-span-2 row-span-2" : i === PHOTOS.length - 1 ? "max-sm:col-span-2" : undefined}
+            >
+              <figure className="group relative h-full overflow-hidden rounded-2xl border border-line bg-surface">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={p.src}
+                  alt={tl(p.alt, lang)}
+                  width={p.width}
+                  height={p.height}
+                  loading="lazy"
+                  className="h-full w-full object-cover object-[50%_25%] transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-4 pt-10 pb-3 text-xs leading-snug font-medium text-white sm:text-sm">
+                  {tl(p.alt, lang)}
+                </figcaption>
+              </figure>
             </li>
           ))}
         </ul>

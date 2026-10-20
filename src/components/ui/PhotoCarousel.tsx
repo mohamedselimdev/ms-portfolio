@@ -51,9 +51,6 @@ export function PhotoCarousel({
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={s.src} alt={s.alt} width={s.width} height={s.height} loading="lazy" className="h-full w-full object-cover object-[50%_22%]" />
-            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent px-5 pt-12 pb-12 text-center text-sm font-medium text-white sm:text-base">
-              {s.alt}
-            </figcaption>
           </figure>
         ))}
 
@@ -82,7 +79,7 @@ export function PhotoCarousel({
               onClick={() => go(i)}
               aria-label={`${i + 1} / ${count}`}
               aria-current={i === index}
-              className={cn("h-2 rounded-full transition-all", i === index ? "w-6 bg-white" : "w-2 bg-white/50 hover:bg-white/80")}
+              className={cn("h-2 rounded-full shadow-[0_0_6px_rgba(0,0,0,0.6)] transition-all", i === index ? "w-6 bg-white" : "w-2 bg-white/50 hover:bg-white/80")}
             />
           ))}
         </div>

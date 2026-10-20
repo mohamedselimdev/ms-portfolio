@@ -107,7 +107,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         knowsLanguage: ["ar", "en", "ru"],
         knowsAbout: published(content.skills).map((s) => s.name),
         email: `mailto:${settings.email}`,
-        homeLocation: { "@type": "Place", name: "Yekaterinburg, Russia" },
+        homeLocation: { "@type": "Place", name: "Cairo, Egypt" },
       },
     ],
   };

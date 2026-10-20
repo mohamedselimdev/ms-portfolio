@@ -22,7 +22,7 @@ export function createSeed(): Content {
       github: "https://github.com/mohamedselimdev",
       instagram: "https://www.instagram.com/mohamedselim.dev",
       calendlyUrl: "",
-      location: l("Yekaterinburg, Russia · Working remotely worldwide", "يكاترينبورغ، روسيا · أعمل عن بُعد مع عملاء من كل مكان"),
+      location: l("Cairo, Egypt · Working remotely with clients worldwide", "القاهرة، مصر · أعمل عن بُعد مع عملاء من كل مكان"),
       availabilityEnabled: true,
       availabilityText: l("Available for freelance projects", "متاح لمشاريع العمل الحر"),
       responseTime: empty,

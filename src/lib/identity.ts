@@ -39,3 +39,25 @@ export function alternateNames(primary: string): string[] {
 export function nameKeywords(lang: Locale): string[] {
   return lang === "ar" ? [...NAME_VARIANTS.arabic, NAME_PAIR.en] : [...NAME_VARIANTS.latin, NAME_PAIR.ar];
 }
+
+/** Photos of Mohamed Selim, shown on the About page and listed for image search. */
+export const PHOTOS = [
+  {
+    src: "/images/profile/portrait-v2.webp",
+    width: 900,
+    height: 1083,
+    alt: { en: "Mohamed Selim, software engineer and full-stack web developer", ar: "محمد سليم، مهندس برمجيات ومطوّر ويب متكامل" },
+  },
+  {
+    src: "/images/profile/portrait-suit.webp",
+    width: 900,
+    height: 1127,
+    alt: { en: "Mohamed Selim in a blue suit", ar: "محمد سليم ببدلة زرقاء" },
+  },
+  {
+    src: "/images/profile/portrait-street.webp",
+    width: 900,
+    height: 1431,
+    alt: { en: "Mohamed Selim walking in the city", ar: "محمد سليم يمشي في المدينة" },
+  },
+] as const;

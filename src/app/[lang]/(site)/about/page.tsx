@@ -6,7 +6,7 @@ import { hasText, isLocale, tl } from "@/i18n/config";
 import { getSiteContent, published } from "@/lib/content";
 import { pageMeta } from "@/lib/metadata";
 import { siteUrl } from "@/lib/utils";
-import { ALL_NAMES, VISIBLE_NAMES, portraitAlt } from "@/lib/identity";
+import { ALL_NAMES, PHOTOS, VISIBLE_NAMES, portraitAlt } from "@/lib/identity";
 import { Icon, TechIcon } from "@/components/icons";
 import { PageHero } from "@/components/ui/PageHero";
 import { StatsBar } from "@/components/ui/StatsBar";
@@ -42,11 +42,7 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
     alternateName: [...new Set([settings.siteName.ar, ...ALL_NAMES].filter(Boolean))].filter((n) => n !== "mohamedselim.dev" && n !== settings.siteName.en),
     jobTitle: settings.role.en,
     url: `${siteUrl()}/${lang}`,
-    image: {
-      "@type": "ImageObject",
-      url: `${siteUrl()}/images/profile/mohamed-selim-web-developer.png`,
-      caption: `${settings.siteName.en} - Full-Stack Web Developer`,
-    },
+    image: PHOTOS.map((p) => ({ "@type": "ImageObject", url: `${siteUrl()}${p.src}`, caption: p.alt.en, width: p.width, height: p.height })),
     sameAs,
     knowsLanguage: ["ar", "en", "ru"],
     alumniOf: { "@type": "CollegeOrUniversity", name: "Ural Federal University" },
@@ -145,6 +141,17 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
             ))}
           </ul>
         )}
+      </section>
+
+      <section className="container-x pb-16 sm:pb-20" aria-label={lang === "ar" ? "صور محمد سليم" : "Photos of Mohamed Selim"}>
+        <ul className="grid max-w-2xl grid-cols-3 gap-3">
+          {PHOTOS.map((p) => (
+            <li key={p.src} className="overflow-hidden rounded-2xl border border-line">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={p.src} alt={tl(p.alt, lang)} width={p.width} height={p.height} loading="lazy" className="aspect-[4/5] w-full object-cover object-top" />
+            </li>
+          ))}
+        </ul>
       </section>
 
       {journey.length > 0 && (

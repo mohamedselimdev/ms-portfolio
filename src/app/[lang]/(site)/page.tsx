@@ -7,7 +7,7 @@ import { isLocale, tl } from "@/i18n/config";
 import { getSiteContent, published } from "@/lib/content";
 import { pageMeta } from "@/lib/metadata";
 import { siteUrl } from "@/lib/utils";
-import { ALL_NAMES, portraitAlt } from "@/lib/identity";
+import { ALL_NAMES, PHOTOS, portraitAlt } from "@/lib/identity";
 import { Icon } from "@/components/icons";
 import { PageHero } from "@/components/ui/PageHero";
 import { TechChips } from "@/components/ui/TechChips";
@@ -72,15 +72,18 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         jobTitle: tl(content.seo.title, lang).split("|").pop()?.trim() || tl(settings.role, lang),
         description: tl(content.seo.description, lang),
         url: home,
-        image: {
-          "@type": "ImageObject",
-          "@id": `${siteUrl()}/#portrait`,
-          url: `${siteUrl()}${PORTRAIT}`,
-          contentUrl: `${siteUrl()}${PORTRAIT}`,
-          caption: `${settings.siteName.en} - Full-Stack Web Developer`,
-          width: 537,
-          height: 600,
-        },
+        image: [
+          {
+            "@type": "ImageObject",
+            "@id": `${siteUrl()}/#portrait`,
+            url: `${siteUrl()}${PORTRAIT}`,
+            contentUrl: `${siteUrl()}${PORTRAIT}`,
+            caption: `${settings.siteName.en} - Full-Stack Web Developer`,
+            width: 537,
+            height: 600,
+          },
+          ...PHOTOS.map((p) => ({ "@type": "ImageObject", url: `${siteUrl()}${p.src}`, caption: p.alt.en, width: p.width, height: p.height })),
+        ],
         sameAs: published(content.socials).map((s) => s.url).filter((u) => u.startsWith("http")),
         alumniOf: { "@type": "CollegeOrUniversity", name: "Ural Federal University" },
         knowsLanguage: ["ar", "en", "ru"],

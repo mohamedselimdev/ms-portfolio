@@ -6,7 +6,7 @@ import { hasText, isLocale, tl } from "@/i18n/config";
 import { getSiteContent, published } from "@/lib/content";
 import { pageMeta } from "@/lib/metadata";
 import { siteUrl } from "@/lib/utils";
-import { ALL_NAMES, PHOTOS, VISIBLE_NAMES, portraitAlt } from "@/lib/identity";
+import { ALL_NAMES, PHOTOS, portraitAlt } from "@/lib/identity";
 import { Icon, TechIcon } from "@/components/icons";
 import { PageHero } from "@/components/ui/PageHero";
 import { StatsBar } from "@/components/ui/StatsBar";
@@ -111,21 +111,6 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
               </span>
             </p>
           )}
-          <p className="mt-4 flex items-start gap-3 text-sm">
-            <Award className="mt-0.5 size-5 shrink-0 text-accent" aria-hidden="true" />
-            <span>
-              <span className="font-semibold">{lang === "ar" ? "يُعرف أيضًا باسم: " : "Also known as: "}</span>
-              <span className="text-muted">
-                <span lang="ar" dir="rtl">
-                  {VISIBLE_NAMES.arabic.join(" · ")}
-                </span>
-                {" · "}
-                <span lang="en" dir="ltr">
-                  {VISIBLE_NAMES.latin.join(" · ")}
-                </span>
-              </span>
-            </span>
-          </p>
         </div>
         {principles.length > 0 && (
           <ul className="flex flex-col gap-4" aria-label={t.about.principlesEyebrow}>

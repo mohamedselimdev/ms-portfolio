@@ -33,7 +33,7 @@ export function PhotoCarousel({
 
   return (
     <div
-      className="relative mx-auto max-w-md"
+      className="relative mx-auto max-w-[17rem] sm:max-w-xs"
       role="region"
       aria-roledescription="carousel"
       aria-label={label}

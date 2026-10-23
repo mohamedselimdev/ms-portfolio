@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useMemo, useState, useTransition } from "react";
-import { Archive, CheckCheck, Mail, MailOpen, Reply, Search, Trash2 } from "lucide-react";
+import { Archive, CheckCheck, Mail, MailOpen, Reply, Search, ShieldAlert, ShieldCheck, Trash2 } from "lucide-react";
 import { deleteInquiry, setInquiryStatus } from "@/app/actions/admin";
 import { useI18n } from "@/i18n/client";
 import type { Inquiry, InquiryStatus } from "@/lib/types";
@@ -23,7 +23,7 @@ export function InquiriesManager({ inquiries, title, description }: { inquiries:
   const list = useMemo(() => {
     const q = query.trim().toLowerCase();
     return inquiries.filter(
-      (i) => (status === "all" ? i.status !== "archived" : i.status === status) && (!q || `${i.name} ${i.email} ${i.company} ${i.message}`.toLowerCase().includes(q)),
+      (i) => (status === "all" ? i.status !== "archived" && i.status !== "spam" : i.status === status) && (!q || `${i.name} ${i.email} ${i.company} ${i.message}`.toLowerCase().includes(q)),
     );
   }, [inquiries, status, query]);
   const selected = inquiries.find((i) => i.id === selectedId) ?? null;
@@ -40,7 +40,7 @@ export function InquiriesManager({ inquiries, title, description }: { inquiries:
     if (i.status === "new") act(() => setInquiryStatus(i.id, "read"), true);
   };
 
-  const statuses: ("all" | InquiryStatus)[] = ["all", "new", "read", "replied", "archived"];
+  const statuses: ("all" | InquiryStatus)[] = ["all", "new", "read", "replied", "archived", "spam"];
 
   return (
     <div>
@@ -56,7 +56,7 @@ export function InquiriesManager({ inquiries, title, description }: { inquiries:
               className={cn("btn btn-sm shrink-0", status === s ? "btn-primary" : "btn-ghost")}
             >
               {s === "all" ? t.admin.fields.all : t.admin.inquiry[s]}
-              <span className="tabular-nums opacity-70">{s === "all" ? inquiries.filter((i) => i.status !== "archived").length : inquiries.filter((i) => i.status === s).length}</span>
+              <span className="tabular-nums opacity-70">{s === "all" ? inquiries.filter((i) => i.status !== "archived" && i.status !== "spam").length : inquiries.filter((i) => i.status === s).length}</span>
             </button>
           ))}
         </div>
@@ -146,6 +146,10 @@ export function InquiriesManager({ inquiries, title, description }: { inquiries:
                 <button type="button" className="btn btn-ghost btn-sm" disabled={pending} onClick={() => act(() => setInquiryStatus(selected.id, "archived"))}>
                   <Archive className="size-4" aria-hidden="true" />
                   {t.admin.actions.archive}
+                </button>
+                <button type="button" className="btn btn-ghost btn-sm" disabled={pending} onClick={() => act(() => setInquiryStatus(selected.id, selected.status === "spam" ? "read" : "spam"))}>
+                  {selected.status === "spam" ? <ShieldCheck className="size-4" aria-hidden="true" /> : <ShieldAlert className="size-4" aria-hidden="true" />}
+                  {selected.status === "spam" ? t.admin.actions.notSpam : t.admin.actions.markSpam}
                 </button>
                 <button
                   type="button"

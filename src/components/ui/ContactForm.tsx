@@ -1,6 +1,7 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
+import Script from "next/script";
 import { Briefcase, Building2, CheckCircle2, Lock, Mail, Send, User } from "lucide-react";
 import { submitInquiry, type InquiryState } from "@/app/actions/inquiry";
 import { useI18n } from "@/i18n/client";
@@ -10,13 +11,53 @@ import { cn } from "@/lib/utils";
 
 type Field = keyof InquiryInput;
 
-export function ContactForm({ services }: { services: string[] }) {
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (el: HTMLElement, opts: Record<string, unknown>) => string;
+      reset: (id?: string) => void;
+      remove: (id?: string) => void;
+    };
+  }
+}
+
+export function ContactForm({ services, turnstileSiteKey = "" }: { services: string[]; turnstileSiteKey?: string }) {
   const { t, locale } = useI18n();
   const [state, action, pending] = useActionState<InquiryState, FormData>(submitInquiry, { status: "idle" });
   const [clientErrors, setClientErrors] = useState<Partial<Record<Field, FieldError>>>({});
   const [length, setLength] = useState(0);
   const [formKey, setFormKey] = useState(0);
   const [dismissed, setDismissed] = useState(false);
+  // Render time, stamped on the client so instant (scripted) submissions can be rejected.
+  const tsRef = useRef<HTMLInputElement>(null);
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const widgetId = useRef<string | undefined>(undefined);
+  const [turnstileReady, setTurnstileReady] = useState(false);
+
+  const startRef = useRef(0);
+  useEffect(() => {
+    startRef.current = Date.now();
+  }, [formKey]);
+  // React resets form fields after each action, so write the original start time back every time.
+  useEffect(() => {
+    if (tsRef.current && startRef.current) tsRef.current.value = String(startRef.current);
+  }, [formKey, state]);
+
+  // Mount the Turnstile widget once its script has loaded (only when a site key is configured).
+  useEffect(() => {
+    const el = turnstileRef.current;
+    if (!turnstileSiteKey || !turnstileReady || !el || !window.turnstile) return;
+    widgetId.current = window.turnstile.render(el, {
+      sitekey: turnstileSiteKey,
+      theme: "dark",
+      language: locale,
+      size: "flexible",
+    });
+    return () => {
+      if (widgetId.current) window.turnstile?.remove(widgetId.current);
+      widgetId.current = undefined;
+    };
+  }, [turnstileSiteKey, turnstileReady, locale, formKey, state, dismissed]);
 
   const errors = { ...state.errors, ...clientErrors };
   const message = (e?: FieldError) =>
@@ -105,6 +146,7 @@ export function ContactForm({ services }: { services: string[] }) {
   return (
     <form key={formKey} action={action} onSubmit={onSubmit} noValidate className="flex flex-col gap-5">
       <input type="hidden" name="locale" value={locale} />
+      <input ref={tsRef} type="hidden" name="ts" defaultValue="" />
       <div aria-hidden="true" className="absolute -start-[9999px] h-0 w-0 overflow-hidden">
         <label>
           Website
@@ -193,6 +235,13 @@ export function ContactForm({ services }: { services: string[] }) {
           </p>
         </div>
       </div>
+
+      {turnstileSiteKey && (
+        <>
+          <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" strategy="afterInteractive" onReady={() => setTurnstileReady(true)} />
+          <div ref={turnstileRef} className="min-h-[65px]" />
+        </>
+      )}
 
       {state.status === "error" && (state.message || Object.keys(errors).length > 0) && (
         <p role="alert" className="rounded-xl border border-danger/40 bg-danger/10 px-4 py-3 text-sm text-red-200">

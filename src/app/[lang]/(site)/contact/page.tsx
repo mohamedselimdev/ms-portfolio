@@ -6,6 +6,7 @@ import { isLocale, tl } from "@/i18n/config";
 import { getSiteContent, published } from "@/lib/content";
 import { pageMeta } from "@/lib/metadata";
 import { whatsappLink } from "@/lib/utils";
+import { readEnv } from "@/lib/env";
 import { GithubIcon, Icon, LinkedinIcon, SocialIcon, WhatsappIcon } from "@/components/icons";
 import { PageHero } from "@/components/ui/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -83,7 +84,7 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
             {t.contact.formTitle}
           </h2>
           <p className="mt-2 mb-8 text-muted">{t.contact.formSubtitle}</p>
-          <ContactForm services={services} />
+          <ContactForm services={services} turnstileSiteKey={readEnv("TURNSTILE_SECRET_KEY") ? readEnv("TURNSTILE_SITE_KEY") : ""} />
         </div>
 
         <aside className="flex flex-col gap-5">

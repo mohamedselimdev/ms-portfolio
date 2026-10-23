@@ -3,12 +3,13 @@
 import { clientIp, rateLimit } from "@/lib/auth";
 import { addInquiry, getContent, updateContent } from "@/lib/store";
 import { validateInquiry, type FieldError, type InquiryInput } from "@/lib/validation";
+import { isLikelySpam, MIN_FILL_MS, verifyTurnstile } from "@/lib/spam";
 import { isLocale } from "@/i18n/config";
 import { readEnv } from "@/lib/env";
 import en from "@/i18n/messages/en";
 import type { Inquiry } from "@/lib/types";
 
-export type InquiryState = { status: "idle" | "success" | "error"; errors?: Partial<Record<keyof InquiryInput, FieldError>>; message?: "tooMany" | "generic" };
+export type InquiryState = { status: "idle" | "success" | "error"; errors?: Partial<Record<keyof InquiryInput, FieldError>>; message?: "tooMany" | "generic" | "captcha" };
 
 const str = (fd: FormData, key: string) => String(fd.get(key) ?? "").trim();
 
@@ -16,19 +17,33 @@ export async function submitInquiry(_prev: InquiryState, fd: FormData): Promise<
   // Honeypot: bots fill hidden fields. Pretend success.
   if (str(fd, "website")) return { status: "success" };
 
+  // Time trap: the form stamps its render time; instant submissions are scripts. Pretend success.
+  // A missing stamp (no JavaScript) is not dropped, only filed under Spam for review.
+  const startedAt = Number(str(fd, "ts"));
+  if (startedAt && Date.now() - startedAt < MIN_FILL_MS) return { status: "success" };
+
   const ip = await clientIp();
   if (!rateLimit(`inquiry:${ip}`, 5, 10 * 60_000)) return { status: "error", message: "tooMany" };
 
-  const budgetIdx = Number(str(fd, "budget"));
-  const timelineIdx = Number(str(fd, "timeline"));
+  // Cloudflare Turnstile (active only when both keys are configured).
+  if (readEnv("TURNSTILE_SITE_KEY") && readEnv("TURNSTILE_SECRET_KEY")) {
+    const ok = await verifyTurnstile(str(fd, "cf-turnstile-response"), readEnv("TURNSTILE_SECRET_KEY"), ip);
+    if (!ok) return { status: "error", message: "captcha" };
+  }
+
+  // An unselected radio is "", and Number("") is 0 which silently became "< $500" / "ASAP".
+  const pick = (list: readonly string[], key: string) => {
+    const raw = str(fd, key);
+    return /^\d+$/.test(raw) ? (list[Number(raw)] ?? "") : "";
+  };
   const input: InquiryInput = {
     name: str(fd, "name"),
     email: str(fd, "email"),
     company: str(fd, "company"),
     service: str(fd, "service"),
     // Store budget/timeline in English so the dashboard stays consistent.
-    budget: en.contact.budgets[budgetIdx] ?? "",
-    timeline: en.contact.timelines[timelineIdx] ?? "",
+    budget: pick(en.contact.budgets, "budget"),
+    timeline: pick(en.contact.timelines, "timeline"),
     message: str(fd, "message"),
   };
   const errors = validateInquiry(input);
@@ -39,14 +54,15 @@ export async function submitInquiry(_prev: InquiryState, fd: FormData): Promise<
     id: crypto.randomUUID(),
     ...input,
     locale: isLocale(locale) ? locale : "en",
-    status: "new",
+    // Sales pitches (SEO agencies etc.) go to the Spam tab instead of the inbox.
+    status: !startedAt || isLikelySpam(input) ? "spam" : "new",
     createdAt: new Date().toISOString(),
   };
 
   try {
     await addInquiry(inquiry);
     await updateContent((c) => c, { action: "create", section: "inquiries", label: `${inquiry.name} <${inquiry.email}>` });
-    await notify(inquiry);
+    if (inquiry.status !== "spam") await notify(inquiry);
   } catch (err) {
     console.error("Failed to store inquiry", err);
     return { status: "error", message: "generic" };

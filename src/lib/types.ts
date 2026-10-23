@@ -267,7 +267,7 @@ export interface Content extends Collections, Singletons {
   activity: ActivityEntry[];
 }
 
-export type InquiryStatus = "new" | "read" | "replied" | "archived";
+export type InquiryStatus = "new" | "read" | "replied" | "archived" | "spam";
 
 export interface Inquiry {
   id: string;

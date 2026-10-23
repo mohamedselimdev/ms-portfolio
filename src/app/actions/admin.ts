@@ -171,7 +171,7 @@ export async function moveItem(key: string, id: string, direction: -1 | 1): Prom
 
 export async function setInquiryStatus(id: string, status: InquiryStatus): Promise<ActionResult> {
   await guard();
-  if (!["new", "read", "replied", "archived"].includes(status)) return { ok: false };
+  if (!["new", "read", "replied", "archived", "spam"].includes(status)) return { ok: false };
   await setInquiryStatusById(id, status);
   done();
   return { ok: true };

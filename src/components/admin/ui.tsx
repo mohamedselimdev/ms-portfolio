@@ -158,6 +158,7 @@ export function StatusBadge({ status }: { status: string }) {
     read: [t.admin.inquiry.read, "border-success/40 bg-success/10 text-green-300"],
     replied: [t.admin.inquiry.replied, "border-violet-400/40 bg-violet-400/10 text-violet-300"],
     archived: [t.admin.inquiry.archived, "border-line-strong bg-white/5 text-muted"],
+    spam: [t.admin.inquiry.spam, "border-danger/40 bg-danger/10 text-red-300"],
   };
   const [label, cls] = map[status] ?? [status, "border-line-strong text-muted"];
   return <span className={cn("inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium whitespace-nowrap", cls)}>{label}</span>;

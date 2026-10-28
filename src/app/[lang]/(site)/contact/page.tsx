@@ -60,7 +60,7 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
         image={hero.image}
         imageAlt={tl(settings.siteName, lang)}
         watermark={settings.logo}
-        signature={hero.showSignature ? settings.siteName.en : undefined}
+        signature={hero.showSignature ? tl(settings.siteName, lang) : undefined}
         note={tl(hero.note, lang)}
       >
         {benefits.length > 0 && (

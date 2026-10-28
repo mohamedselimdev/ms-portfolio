@@ -61,7 +61,7 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
         image={content.hero.image}
         imageAlt={portraitAlt(lang)}
         watermark={settings.logo}
-        signature={content.hero.showSignature ? settings.siteName.en : undefined}
+        signature={content.hero.showSignature ? tl(settings.siteName, lang) : undefined}
         note={tl(content.hero.note, lang)}
       >
         <Credential about={about} locale={lang} />
@@ -98,7 +98,7 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
               <Quote className="mb-2 size-7 text-primary" aria-hidden="true" />
               <blockquote className="text-fg/90 italic">“{tl(about.quote, lang)}”</blockquote>
               <figcaption className="mt-3 flex justify-end">
-                <Signature name={settings.siteName.en} className="rotate-0 text-4xl text-muted" />
+                <Signature name={tl(settings.siteName, lang)} className="rotate-0 text-4xl text-muted" />
               </figcaption>
             </figure>
           )}

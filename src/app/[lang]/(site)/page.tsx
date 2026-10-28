@@ -124,7 +124,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         image={hero.image}
         imageAlt={portraitAlt(lang)}
         watermark={settings.logo}
-        signature={hero.showSignature ? settings.siteName.en : undefined}
+        signature={hero.showSignature ? tl(settings.siteName, lang) : undefined}
         note={tl(hero.note, lang)}
       >
         <div>

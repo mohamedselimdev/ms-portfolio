@@ -41,7 +41,7 @@ export default async function ProjectsPage({ params }: PageProps<"/[lang]/projec
         image={content.hero.image}
         imageAlt={tl(content.settings.siteName, lang)}
         watermark={content.settings.logo}
-        signature={content.hero.showSignature ? content.settings.siteName.en : undefined}
+        signature={content.hero.showSignature ? tl(content.settings.siteName, lang) : undefined}
       />
 
       {spotlight && (

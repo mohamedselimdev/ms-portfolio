@@ -440,3 +440,11 @@ img {
   line-height: 1.7;
   letter-spacing: normal;
 }
+/* Arabic signature: Ruqaa handwriting, slightly smaller than the Latin script so it keeps the same footprint. */
+.signature-ar {
+  font-family: var(--font-ruqaa), var(--font-plex-ar), serif;
+  font-weight: 400;
+}
+.signature-ar > span {
+  font-size: 0.78em;
+}

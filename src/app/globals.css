@@ -242,6 +242,12 @@ img {
     font-size: clamp(2rem, 10.5cqi, 4.6rem);
     overflow-wrap: anywhere;
   }
+  /* Laptops: keep the title to two lines so the whole hero, buttons included, fits on screen. */
+  @media (min-width: 1024px) {
+    .hero-title {
+      font-size: clamp(2rem, 8.4cqi, 3.9rem);
+    }
+  }
   [dir="rtl"] .hero-title {
     line-height: 1.5;
   }

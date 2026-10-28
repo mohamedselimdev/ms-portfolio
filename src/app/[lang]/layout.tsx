@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
-import { Aref_Ruqaa, Dancing_Script, IBM_Plex_Sans_Arabic, Mrs_Saint_Delafield, Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Aref_Ruqaa, IBM_Plex_Sans_Arabic, Mrs_Saint_Delafield, Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "../globals.css";
 import { I18nProvider } from "@/i18n/client";
 import { getMessages } from "@/i18n";
@@ -14,7 +14,6 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "sw
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["600", "700", "800"], variable: "--font-jakarta", display: "swap" });
 const plexArabic = IBM_Plex_Sans_Arabic({ subsets: ["arabic"], weight: ["400", "500", "600", "700"], variable: "--font-plex-ar", display: "swap" });
 const signature = Mrs_Saint_Delafield({ subsets: ["latin"], weight: "400", variable: "--font-signature", display: "swap" });
-const handNote = Dancing_Script({ subsets: ["latin"], weight: ["500", "600"], variable: "--font-hand", display: "swap", preload: false });
 const ruqaa = Aref_Ruqaa({ subsets: ["arabic"], weight: ["400", "700"], variable: "--font-ruqaa", display: "swap", preload: false });
 
 // Content is edited from the CMS at runtime, so pages render per request.
@@ -96,7 +95,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
     <html
       lang={lang}
       dir={dirOf(lang)}
-      className={`${inter.variable} ${jakarta.variable} ${plexArabic.variable} ${signature.variable} ${handNote.variable} ${ruqaa.variable}`}
+      className={`${inter.variable} ${jakarta.variable} ${plexArabic.variable} ${signature.variable} ${ruqaa.variable}`}
       style={{ ...themeStyle(theme), ...(fontVars as React.CSSProperties) }}
       suppressHydrationWarning
     >

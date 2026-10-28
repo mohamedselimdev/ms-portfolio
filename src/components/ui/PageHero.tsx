@@ -51,7 +51,7 @@ export function PageHero({
         </div>
 
         {image && (
-          <div className="relative order-1 -mx-4 h-[19rem] xs:h-[22rem] sm:-mx-6 sm:h-[28rem] lg:order-2 lg:mx-0 lg:-ms-[14%] lg:-me-10 lg:h-auto lg:min-h-[38rem] lg:self-stretch">
+          <div className="relative order-1 -mx-4 h-[19rem] xs:h-[22rem] sm:-mx-6 sm:h-[28rem] lg:order-2 lg:mx-0 lg:-ms-[14%] lg:h-auto lg:min-h-[38rem] lg:self-stretch">
             {watermark && (
               // eslint-disable-next-line @next/next/no-img-element -- decorative SVG watermark
               <img src={watermark} alt="" aria-hidden="true" className="absolute top-[12%] start-[-6%] -z-10 w-[62%] opacity-[0.07] blur-[1px] lg:start-[-18%]" />

@@ -34,14 +34,14 @@ export function PageHero({
       <div aria-hidden="true" className="grid-bg absolute inset-0 -z-20 opacity-60" />
 
       <div className={cn("container-x relative grid lg:min-h-[38rem] lg:grid-cols-[1.05fr_0.95fr]", compact ? "lg:min-h-[30rem]" : "")}>
-        <div className="relative z-10 order-2 flex flex-col gap-6 pt-2 pb-12 lg:order-1 lg:self-center lg:py-16">
+        <div className="hero-copy relative z-10 order-2 flex min-w-0 flex-col gap-6 pt-2 pb-12 lg:order-1 lg:self-center lg:py-16">
           {badge && (
             <p className="pill self-start border-primary/30 bg-primary/5 text-[0.7rem] font-bold tracking-[0.14em] text-fg/90 uppercase rtl:tracking-normal rtl:normal-case">
               <span className="status-dot bg-primary!" aria-hidden="true" />
               {badge}
             </p>
           )}
-          <h1 className="heading-xl text-balance">
+          <h1 className="heading-xl hero-title text-balance">
             <Highlight text={title} />
             {(highlight || titleAfter) && <br />}
             {highlight && <span className="text-highlight">{highlight}</span>} {titleAfter}

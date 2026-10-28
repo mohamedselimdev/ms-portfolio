@@ -235,6 +235,16 @@ img {
     line-height: 1.02;
     font-size: clamp(2.35rem, 1.4rem + 4.6vw, 4.6rem);
   }
+  .hero-copy {
+    container-type: inline-size;
+  }
+  .hero-title {
+    font-size: clamp(2rem, 10.5cqi, 4.6rem);
+    overflow-wrap: anywhere;
+  }
+  [dir="rtl"] .hero-title {
+    line-height: 1.5;
+  }
   .heading-lg {
     font-family: var(--font-display);
     font-weight: 800;

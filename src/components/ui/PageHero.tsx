@@ -69,7 +69,7 @@ export function PageHero({
                 {signature && <Signature name={signature} className="me-2 text-[1.6rem] xs:text-[1.9rem] sm:text-5xl lg:text-[3.5rem]" />}
                 {note && (
                   <div className="hidden flex-col items-start sm:flex">
-                    <p className="w-48 rounded-2xl border border-primary/45 bg-[#0a1733]/70 px-5 py-4 text-[0.95rem] leading-snug text-white/90 shadow-[inset_0_0_24px_rgba(31,107,255,0.12)] backdrop-blur-sm">{note}</p>
+                    <p className="hero-note w-52 rounded-2xl border border-primary/45 bg-[#0a1733]/70 px-5 py-4 text-white/95 shadow-[inset_0_0_24px_rgba(31,107,255,0.12)] backdrop-blur-sm">{note}</p>
                     <svg viewBox="0 0 64 64" className="ms-5 mt-3 size-14 text-white/80 rtl:-scale-x-100" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <path d="M8 56C30 52 44 36 48 10" />
                       <path d="M40 17L48 10L53 19" />

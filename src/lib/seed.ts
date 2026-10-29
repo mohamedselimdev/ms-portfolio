@@ -940,8 +940,44 @@ export function createSeed(): Content {
       {
         "status": "published",
         "updatedAt": "2026-10-29T12:00:00.000Z",
-        "gallery": [],
-        "image": "",
+        "gallery": [
+          {
+            "src": "/images/projects/shams/cover.webp",
+            "caption": {
+              "en": "Arabic storefront homepage (demo data)",
+              "ar": "الصفحة الرئيسية للمتجر بالعربية (بيانات تجريبية)"
+            }
+          },
+          {
+            "src": "/images/projects/shams/shop.webp",
+            "caption": {
+              "en": "Product listing with filters",
+              "ar": "قائمة المنتجات مع الفلاتر"
+            }
+          },
+          {
+            "src": "/images/projects/shams/lens.webp",
+            "caption": {
+              "en": "Prescription-lens configurator",
+              "ar": "مُهيّئ العدسات الطبية"
+            }
+          },
+          {
+            "src": "/images/projects/shams/admin.webp",
+            "caption": {
+              "en": "Staff dashboard with sales and branch reports (demo data)",
+              "ar": "لوحة الموظفين مع تقارير المبيعات والفروع (بيانات تجريبية)"
+            }
+          },
+          {
+            "src": "/images/projects/shams/mobile.webp",
+            "caption": {
+              "en": "Mobile storefront",
+              "ar": "المتجر على الموبايل"
+            }
+          }
+        ],
+        "image": "/images/projects/shams/cover.webp",
         "featured": true,
         "projectStatus": "completed",
         "year": "2026",
@@ -1000,8 +1036,30 @@ export function createSeed(): Content {
       {
         "status": "published",
         "updatedAt": "2026-10-29T12:00:00.000Z",
-        "gallery": [],
-        "image": "",
+        "gallery": [
+          {
+            "src": "/images/projects/noor/cover.webp",
+            "caption": {
+              "en": "Home screen with daily summary (sample data)",
+              "ar": "الشاشة الرئيسية مع ملخص اليوم (بيانات تجريبية)"
+            }
+          },
+          {
+            "src": "/images/projects/noor/projects.webp",
+            "caption": {
+              "en": "Projects list (sample data)",
+              "ar": "قائمة المشاريع (بيانات تجريبية)"
+            }
+          },
+          {
+            "src": "/images/projects/noor/tasks.webp",
+            "caption": {
+              "en": "Tasks with priorities and due dates (sample data)",
+              "ar": "المهام بالأولويات والمواعيد (بيانات تجريبية)"
+            }
+          }
+        ],
+        "image": "/images/projects/noor/cover.webp",
         "featured": false,
         "projectStatus": "in-progress",
         "year": "2026",
@@ -1021,8 +1079,8 @@ export function createSeed(): Content {
           "ar": "نور — نظام تشغيل شخصي للأعمال"
         },
         "summary": {
-          "en": "An Arabic-first, local-first desktop app with an AI manager and voice commands that run fully on the user's own machine.",
-          "ar": "تطبيق مكتبي بالعربية يعمل محليًا أولًا، مع مدير بالذكاء الاصطناعي وأوامر صوتية تعمل بالكامل على جهاز المستخدم."
+          "en": "An Arabic-first, local-first desktop app that keeps clients, leads, projects, tasks and a calendar on the user's own machine, with an AI manager and voice commands that run fully offline.",
+          "ar": "تطبيق مكتبي بالعربية يعمل محليًا أولًا، يحفظ العملاء والفرص والمشاريع والمهام والتقويم على جهاز المستخدم، مع مدير بالذكاء الاصطناعي وأوامر صوتية تعمل بالكامل دون إنترنت."
         },
         "category": "web-apps",
         "stack": "Tauri, React, TypeScript, FastAPI, SQLAlchemy, SQLite, llama.cpp, faster-whisper",
@@ -1049,8 +1107,8 @@ export function createSeed(): Content {
           "ar": "واجهة React داخل تطبيق Tauri وخدمة FastAPI على SQLite. نموذج llama.cpp محلي وتعرّف على الكلام على الجهاز يشغّلان المساعد، الذي لا يصل للبيانات إلا عبر طبقة أدوات تسجّل كل استدعاء وتطلب التأكيد قبل الإجراءات الحساسة. موصّلات قابلة للتركيب تجلب Gmail وGoogle Calendar وTelegram."
         },
         "features": {
-          "en": "Arabic-first interface\nFully local AI manager and voice input\nAudit log of every assistant action\nConfirmation for sensitive actions\nConnectors for Gmail, Google Calendar and Telegram\nEncrypted secrets",
-          "ar": "واجهة عربية أولًا\nمدير ذكاء اصطناعي وإدخال صوتي محليان بالكامل\nسجل مراجعة لكل إجراء للمساعد\nتأكيد للإجراءات الحساسة\nموصّلات لـ Gmail وGoogle Calendar وTelegram\nتشفير للأسرار"
+          "en": "Arabic-first interface with light and dark themes\nClients, leads, projects, tasks and calendar in one place\nMorning summary and analytics\nFully local AI manager and voice input\nAudit log of every assistant action and confirmation for sensitive actions\nConnectors for Gmail, Google Calendar and Telegram\nEncrypted secrets",
+          "ar": "واجهة عربية أولًا بمظهر فاتح وداكن\nالعملاء والفرص والمشاريع والمهام والتقويم في مكان واحد\nملخص صباحي وتحليلات\nمدير ذكاء اصطناعي وإدخال صوتي محليان بالكامل\nسجل مراجعة لكل إجراء للمساعد وتأكيد للإجراءات الحساسة\nموصّلات لـ Gmail وGoogle Calendar وTelegram\nتشفير للأسرار"
         },
         "responsibilities": {
           "en": "Desktop app and UI\nBackend API and data layer\nLocal AI and voice integration\nSecurity and audit design",
@@ -1060,8 +1118,37 @@ export function createSeed(): Content {
       {
         "status": "published",
         "updatedAt": "2026-10-29T12:00:00.000Z",
-        "gallery": [],
-        "image": "",
+        "gallery": [
+          {
+            "src": "/images/projects/calculator/cover.webp",
+            "caption": {
+              "en": "Packages and total",
+              "ar": "الباقات والإجمالي"
+            }
+          },
+          {
+            "src": "/images/projects/calculator/plan.webp",
+            "caption": {
+              "en": "Pricing and payment plan",
+              "ar": "السعر وخطة الدفع"
+            }
+          },
+          {
+            "src": "/images/projects/calculator/mobile.webp",
+            "caption": {
+              "en": "Mobile view in Arabic",
+              "ar": "الموبايل بالعربية"
+            }
+          },
+          {
+            "src": "/images/projects/calculator/english.webp",
+            "caption": {
+              "en": "Mobile view in English",
+              "ar": "الموبايل بالإنجليزية"
+            }
+          }
+        ],
+        "image": "/images/projects/calculator/cover.webp",
         "featured": false,
         "projectStatus": "completed",
         "year": "2026",
@@ -1077,12 +1164,12 @@ export function createSeed(): Content {
         "order": 11,
         "slug": "pricing-calculator",
         "title": {
-          "en": "Pricing Calculator",
-          "ar": "حاسبة التسعير"
+          "en": "Project Pricing Calculator",
+          "ar": "حاسبة تسعير المشاريع"
         },
         "summary": {
-          "en": "A bilingual single-page pricing calculator with adjustable items, payment tracking and a language switch.",
-          "ar": "حاسبة تسعير من صفحة واحدة بالعربية والإنجليزية، مع بنود قابلة للتعديل ومتابعة الدفعات وتبديل اللغة."
+          "en": "A bilingual quoting tool: pick a package, add extras and quantities, apply a discount, and get the total with a staged payment plan and paid/unpaid tracking.",
+          "ar": "أداة تسعير بالعربية والإنجليزية: اختر الباقة وأضف الإضافات والكميات وطبّق خصمًا لتحصل على الإجمالي وخطة دفع على مراحل مع متابعة المدفوع."
         },
         "category": "web-apps",
         "stack": "HTML, CSS, JavaScript, Cloudflare Workers",
@@ -1097,20 +1184,20 @@ export function createSeed(): Content {
           "ar": "مشروع شخصي"
         },
         "overview": {
-          "en": "A small tool for quoting a project: choose items, adjust quantities, see the total and mark installments as paid.",
-          "ar": "أداة صغيرة لتسعير مشروع: اختيار البنود وضبط الكميات ومعرفة الإجمالي وتحديد الدفعات المسددة."
+          "en": "A small tool I built to quote web projects quickly and consistently, usable from a phone during a client conversation.",
+          "ar": "أداة صغيرة بنيتها لتسعير مشاريع الويب بسرعة وثبات، ويمكن استخدامها من الموبايل أثناء الحديث مع العميل."
         },
         "challenge": {
-          "en": "Keep quotes quick and clear for Arabic and English clients on a phone.",
-          "ar": "جعل عروض الأسعار سريعة وواضحة للعملاء بالعربية والإنجليزية على الموبايل."
+          "en": "Quotes were slow to put together and easy to get wrong: packages, extras, discounts and installments all had to be added up by hand.",
+          "ar": "كان إعداد عروض الأسعار بطيئًا وعرضة للخطأ: الباقات والإضافات والخصومات والدفعات كلها كانت تُجمع يدويًا."
         },
         "solution": {
-          "en": "A dependency-free page with a right-to-left layout, a language toggle and a settings panel, deployed as static assets on Cloudflare Workers.",
-          "ar": "صفحة بدون مكتبات خارجية بتخطيط من اليمين لليسار وتبديل لغة ولوحة إعدادات، منشورة كملفات ثابتة على Cloudflare Workers."
+          "en": "A dependency-free single page with a right-to-left layout and a language toggle. Three packages and optional add-ons feed one total, the payment plan splits it into stages and tracks what has been received, and a settings panel and currency selector adapt it to different clients. Deployed as static assets on Cloudflare Workers.",
+          "ar": "صفحة واحدة بدون مكتبات خارجية بتخطيط من اليمين لليسار وتبديل للغة. ثلاث باقات وإضافات اختيارية تغذي إجماليًا واحدًا، وخطة الدفع تقسّمه لمراحل وتتابع المستلم، مع لوحة إعدادات واختيار للعملة لتناسب كل عميل. منشورة كملفات ثابتة على Cloudflare Workers."
         },
         "features": {
-          "en": "Arabic and English\nQuantity controls\nPayment tracking per installment\nSettings panel\nMobile-first layout",
-          "ar": "عربي وإنجليزي\nأزرار للكميات\nمتابعة كل دفعة\nلوحة إعدادات\nتصميم للموبايل أولًا"
+          "en": "Three packages and optional add-ons with quantities\nDiscount percentage\nStaged payment plan with received / not received tracking\nCurrency selector and settings panel\nArabic and English\nMobile-first layout",
+          "ar": "ثلاث باقات وإضافات اختيارية بكميات\nنسبة خصم\nخطة دفع على مراحل مع متابعة المستلم وغير المستلم\nاختيار العملة ولوحة إعدادات\nعربي وإنجليزي\nتصميم للموبايل أولًا"
         },
         "responsibilities": {
           "en": "Design and implementation\nDeployment",
